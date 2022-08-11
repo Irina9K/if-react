@@ -10,7 +10,7 @@ function SectionHomes() {
       <div className="main__homes--hotel">
         {data.map((item) => (
           <>
-            <figure className="main__russia">
+            <figure className="main__country">
               <img src={item.imageUrl} alt="hotel_name" />
               <figcaption className="main__name--img">
                 <a href="#" className="nav__link--country">

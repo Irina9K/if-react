@@ -60,10 +60,7 @@ h2::after {
   justify-content: center;
 }
 
-.main__russia,
-.main__spain--homes,
-.main__slowakia,
-.main__germany {
+.main__country {
   display: flex;
   flex-direction: column;
   justify-content: center;
