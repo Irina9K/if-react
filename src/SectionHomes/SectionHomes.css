@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+.main__container--homes {
+  max-width: 1440px;
+}
+
 h2 {
   font-size: 40px;
   font-weight: 500;
@@ -39,10 +43,6 @@ h2::after {
   left: 47%;
 }
 
-.main__container--homes {
-  max-width: 1440px;
-}
-
 .main__homes {
   background-color: #eaf0f9;
   max-height: 1500px;
@@ -58,6 +58,7 @@ h2::after {
   align-items: flex-start;
   flex-flow: row wrap;
   justify-content: center;
+  width: 1220px;
 }
 
 .main__country {
