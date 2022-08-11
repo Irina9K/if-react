@@ -1,0 +1,96 @@
+@import '../fonts.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 1440px;
+  color: #383838;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 100px;
+  padding-top: 119px;
+}
+
+.main__title {
+  position: relative;
+}
+
+h2::after {
+  background-color: #f5bd41;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  top: 187px;
+  left: 47%;
+}
+
+.main__container--homes {
+  max-width: 1440px;
+}
+
+.main__homes {
+  background-color: #eaf0f9;
+  max-height: 1500px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -8px;
+}
+
+.main__homes--hotel {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.main__russia,
+.main__spain--homes,
+.main__slowakia,
+.main__germany {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(25% - 26px);
+  margin: 8px;
+}
+
+.nav__link--country {
+  color: #3077c6;
+  text-decoration: none;
+}
+
+.main__name--img {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  font-weight: 400;
+  padding-top: 24px;
+  text-align: left;
+}
+
+.main__name--country {
+  color: #bfbfbf;
+  padding-top: 24px;
+  padding-bottom: 50px;
+}
+
+.main__homes--hotel {
+  position: relative;
+}
