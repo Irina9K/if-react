@@ -1,4 +1,4 @@
-@import '../fonts.css';
+@import '../../fonts.css';
 
 * {
   box-sizing: border-box;
@@ -19,28 +19,6 @@ a {
 
 .main__container--homes {
   max-width: 1440px;
-}
-
-h2 {
-  font-size: 40px;
-  font-weight: 500;
-  margin-bottom: 100px;
-  padding-top: 119px;
-}
-
-.main__title {
-  position: relative;
-}
-
-h2::after {
-  background-color: #f5bd41;
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100px;
-  height: 4px;
-  top: 187px;
-  left: 47%;
 }
 
 .main__homes {
