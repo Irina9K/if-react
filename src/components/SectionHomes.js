@@ -1,5 +1,6 @@
 import '../assets/css/SectionHomes.css';
 import '../assets/css/Title.css';
+import '../assets/css/style.scss';
 
 const data = [
   {
