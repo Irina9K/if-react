@@ -2,6 +2,7 @@ import React from 'react';
 import '../assets/css/TopSection.css';
 import background from '../assets/img/castell.png';
 import SearchHotel from './details/SearchHotel';
+import IconsSVG from '../assets/img/sprite.svg';
 import Calendar from './details/Сalendar';
 import Filter from './details/Filter';
 import Button from './details/Button';
@@ -18,7 +19,9 @@ const TopSection = () => (
         <div className="section section__header--top">
           <div className="header__logo">
             <a href="#">
-              {/* <svg className="logo__vector">/!*<use xlinkHref={logo}></use>*!/</svg> */}
+               <svg className="logo__vector">
+                  <use xlinkHref={`${IconsSVG}#logo_vector`}/>
+               </svg>
             </a>
           </div>
 
@@ -41,19 +44,19 @@ const TopSection = () => (
             <div className="header__icon--light">
               <button className="btn header__button--light">
                 <svg className="icon__night">
-                  {/* <use xlinkHref="./images/sprite/sprite.svg#night"></use> */}
+                   <use xlinkHref={`${IconsSVG}#night`}/>
                 </svg>
               </button>
             </div>
             <div className="header__icon--account">
               <svg className="icon__account">
-                {/* <use xlinkHref="./images/sprite/sprite.svg#account_circle"></use> */}
+                 <use xlinkHref={`${IconsSVG}#account_circle`}/>
               </svg>
             </div>
 
             <div className="burger__menu">
               <svg className="icon__menu">
-                {/* <use xlinkHref="./images/sprite/sprite.svg#menu"></use> */}
+                 <use xlinkHref={`${IconsSVG}#menu`}/>
               </svg>
             </div>
           </div>
@@ -73,10 +76,10 @@ const TopSection = () => (
           </form>
           <div className="header__app">
             <a href="#" className="header__app--link">
-              {/* <img src="./images/png/google_play.png" alt="google_play" /> */}
+               <img src="../assets/img/google_play.png" alt="google_play" />
             </a>
             <a href="#" className="header__app--link">
-              {/* <img src="./images/png/app_store.png" alt="app_store" /> */}
+               <img src="../assets/img/app_store.png" alt="app_store" />
             </a>
           </div>
         </section>
