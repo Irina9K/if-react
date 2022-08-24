@@ -71,9 +71,9 @@ const data = [
 
 function SectionHomes() {
   return (
-    <div className="main__container--homes">
+    <div className="container main__container--homes">
       <section className="main__homes">
-        <div>
+        <div className="main__title title_homes">
           <h2>Homes guests loves</h2>
         </div>
         <div className="main__homes--hotel">

@@ -8,12 +8,11 @@ import Filter from './details/Filter';
 import Button from './details/Button';
 
 const TopSection = () => (
-  <div>
+
     <header
       style={{
         backgroundImage: `url(${background})`,
       }}
-      className="header"
     >
       <div className="container header__container">
         <div className="section section__header--top">
@@ -85,7 +84,7 @@ const TopSection = () => (
         </section>
       </div>
     </header>
-  </div>
+
 );
 
 export default TopSection;

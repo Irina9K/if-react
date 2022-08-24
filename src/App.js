@@ -6,8 +6,10 @@ function App() {
   return (
     <div>
       <TopSection />
-      <SectionAvailable />
-      <SectionHomes />
+      <main>
+        <SectionAvailable />
+        <SectionHomes />
+      </main>
     </div>
   );
 }
