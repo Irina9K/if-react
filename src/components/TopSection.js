@@ -19,9 +19,9 @@ const TopSection = () => (
         <div className="section section__header--top">
           <div className="header__logo">
             <a href="#">
-               <svg className="logo__vector">
-                  <use xlinkHref={`${IconsSVG}#logo_vector`}/>
-               </svg>
+              <svg className="logo__vector">
+                <use xlinkHref={`${IconsSVG}#logo_vector`} />
+              </svg>
             </a>
           </div>
 
@@ -44,19 +44,19 @@ const TopSection = () => (
             <div className="header__icon--light">
               <button className="btn header__button--light">
                 <svg className="icon__night">
-                   <use xlinkHref={`${IconsSVG}#night`}/>
+                  <use xlinkHref={`${IconsSVG}#night`} />
                 </svg>
               </button>
             </div>
             <div className="header__icon--account">
               <svg className="icon__account">
-                 <use xlinkHref={`${IconsSVG}#account_circle`}/>
+                <use xlinkHref={`${IconsSVG}#account_circle`} />
               </svg>
             </div>
 
             <div className="burger__menu">
               <svg className="icon__menu">
-                 <use xlinkHref={`${IconsSVG}#menu`}/>
+                <use xlinkHref={`${IconsSVG}#menu`} />
               </svg>
             </div>
           </div>
@@ -69,17 +69,19 @@ const TopSection = () => (
             to live, work or just relax
           </h1>
           <form className="input__group">
+
             <SearchHotel />
             <Calendar />
             <Filter />
             <Button />
+
           </form>
           <div className="header__app">
             <a href="#" className="header__app--link">
-               <img src="../assets/img/google_play.png" alt="google_play" />
+              <img src="../assets/img/google_play.png" alt="google_play" />
             </a>
             <a href="#" className="header__app--link">
-               <img src="../assets/img/app_store.png" alt="app_store" />
+              <img src="../assets/img/app_store.png" alt="app_store" />
             </a>
           </div>
         </section>
