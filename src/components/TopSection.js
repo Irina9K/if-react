@@ -69,12 +69,10 @@ const TopSection = () => (
             to live, work or just relax
           </h1>
           <form className="input__group">
-
             <SearchHotel />
             <Calendar />
             <Filter />
             <Button />
-
           </form>
           <div className="header__app">
             <a href="#" className="header__app--link">
