@@ -1,15 +1,15 @@
 import React from 'react';
 
-function AvailableItem(data) {
+function AvailableItem({ city, country, name, imageUrl }) {
   return (
     <div>
       <figure className="main__free--element">
-        <img src={data.place.imageUrl} />
+        <img src={imageUrl} />
         <figcaption className="main__name--img">
-          <a className="nav__link--country">{data.place.name}</a>
+          <a className="nav__link--country">{name}</a>
           <a className="main__name--country">
-            {data.place.city}
-            {data.place.country}
+            {city}
+            {country}
           </a>
         </figcaption>
       </figure>

@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint-husky": "prettier --write src/**/*.js && eslint --debug src/**/*.js"
+    "lint-husky": "prettier --write src/**/*.js && eslint --debug src/**/*.js --fix"
   },
   "eslintConfig": {
     "extends": [
