@@ -8,7 +8,7 @@ function AvailableItem({ city, country, name, imageUrl }) {
         <figcaption className="main__name--img">
           <a className="nav__link--country">{name}</a>
           <a className="main__name--country">
-            {city}
+            {city}<br/>
             {country}
           </a>
         </figcaption>

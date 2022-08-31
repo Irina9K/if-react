@@ -15,15 +15,16 @@ function TopSection() {
     e.preventDefault();
     const searchString = e.target.value.trim().toLowerCase();
 
-    if (searchString === '') {
+    if (searchString.length === 0) {
       setDisplayError('block');
+      setDisplay('none');
       return;
     }
 
     const searchPlace = data.filter(
-      (item) => item.name.trim().toLowerCase() === searchString ||
-        item.city.trim().toLowerCase() === searchString ||
-        item.country.trim().toLowerCase() === searchString,
+      (item) => item.name.trim().toLowerCase().includes(searchString) ||
+        item.city.trim().toLowerCase().includes(searchString) ||
+        item.country.trim().toLowerCase().includes(searchString),
     );
 
     setSearchPlace(searchPlace);
