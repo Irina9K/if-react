@@ -9,13 +9,14 @@ import AvailableItem from './details/AvailableItem';
 function TopSection() {
   const [arrSearchPlace, setSearchPlace] = useState([]);
   const [display, setDisplay] = useState('none');
+  const [displayError, setDisplayError] = useState('none');
 
   function showAvailablePlace(e) {
     e.preventDefault();
     const searchString = e.target.value.trim().toLowerCase();
 
     if (searchString === '') {
-      alert('Please enter destination or hotel name');
+      setDisplayError('block');
       return;
     }
 
@@ -27,6 +28,7 @@ function TopSection() {
 
     setSearchPlace(searchPlace);
     setDisplay('block');
+    setDisplayError('none');
   }
   return (
     <>
@@ -219,14 +221,14 @@ function TopSection() {
                   imageUrl={place.imageUrl}
                 />
               ))}
-              {/* <div */}
-              {/*  className="free__error" */}
-              {/*  style={{ */}
-              {/*    display: displayEror, */}
-              {/*  }} */}
-              {/* > */}
-              {/*  <p className="error__text">Please enter destination or hotel name</p> */}
-              {/* </div> */}
+              <div
+                className="free__error"
+                style={{
+                  display: displayError,
+                }}
+              >
+                <p className="error__text">Please enter destination or hotel name</p>
+              </div>
             </div>
           </div>
         </section>
