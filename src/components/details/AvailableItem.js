@@ -4,11 +4,12 @@ function AvailableItem({ city, country, name, imageUrl }) {
   return (
     <div>
       <figure className="main__free--element">
-        <img src={imageUrl} />
+        <img src={imageUrl} alt={name}/>
         <figcaption className="main__name--img">
           <a className="nav__link--country">{name}</a>
           <a className="main__name--country">
-            {city}<br/>
+            {city}
+            <br />
             {country}
           </a>
         </figcaption>

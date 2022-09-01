@@ -10,7 +10,7 @@ class SectionHomes extends Component {
 
   componentDidMount() {
     fetch(`${API_URL}/${PATH_FOR_HOTELS_POPULAR}`)
-      .then((result) => result.json())
+      .then((response) => response.json())
       .then((data) => {
         this.setState({
           data,
@@ -28,9 +28,13 @@ class SectionHomes extends Component {
           <div className="main__homes--hotel">
             {this.state.data.map((item) => (
               <figure key={item.id} className="main__country">
-                <img src={item.imageUrl} alt={item.name} style={{
-                  height: `${296}px`,
-                }} />
+                <img
+                  src={item.imageUrl}
+                  alt={item.name}
+                  style={{
+                    height: `${296}px`,
+                  }}
+                />
                 <figcaption className="main__name--img">
                   <a href="src/components/SectionHomes#" className="nav__link--country">
                     {item.name}

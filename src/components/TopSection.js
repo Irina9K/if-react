@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
-import { data } from './constans/constans';
 import AvailableItem from './details/AvailableItem';
+import { API_URL, PATH_FOR_HOTELS } from './constans/api';
 
 function TopSection() {
-  const [arrSearchPlace, setSearchPlace] = useState([]);
+  const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [display, setDisplay] = useState('none');
   const [displayError, setDisplayError] = useState('none');
+
+  useEffect(() => {
+    fetch(`${API_URL}/${PATH_FOR_HOTELS}`)
+      .then((response) => response.json())
+      .then((result) => {
+        setArrSearchPlace(result);
+      });
+  }, []);
 
   function showAvailablePlace(e) {
     e.preventDefault();
@@ -21,13 +29,13 @@ function TopSection() {
       return;
     }
 
-    const searchPlace = data.filter(
+    const searchPlace = arrSearchPlace.filter(
       (item) => item.name.trim().toLowerCase().includes(searchString) ||
         item.city.trim().toLowerCase().includes(searchString) ||
         item.country.trim().toLowerCase().includes(searchString),
     );
 
-    setSearchPlace(searchPlace);
+    setArrSearchPlace(searchPlace);
     setDisplay('block');
     setDisplayError('none');
   }
