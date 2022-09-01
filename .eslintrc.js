@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: ['react', 'babel', 'import'],
   rules: {
+    'react/prop-types': 'off',
     'object-curly-newline': [
       'error',
       {
@@ -25,6 +26,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-console': 'off',
+    'no-alert': 'off',
     'max-len': ['error', { ignoreComments: true, code: 160 }],
     'import/prefer-default-export': 'off',
     'no-param-reassign': 0,

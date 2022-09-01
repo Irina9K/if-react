@@ -28,7 +28,7 @@ a {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 -8px;
+  /*margin: 0 -8px;*/
 }
 
 .main__homes--hotel {

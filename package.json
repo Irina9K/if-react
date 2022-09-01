@@ -9,6 +9,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-svg-use": "^2.1.0",
     "sass": "^1.54.4",
     "web-vitals": "^2.1.4"
   },
@@ -21,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint-husky": "prettier --write src/**/*.js && eslint --debug src/**/*.js"
+    "lint-husky": "prettier --write src/**/*.js && eslint --debug src/**/*.js --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +67,7 @@
     "prettier": "2.7.1",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
+    "svg-sprite-loader": "^6.0.11",
     "url-loader": "^4.1.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
