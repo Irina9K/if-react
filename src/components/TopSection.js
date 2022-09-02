@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
 import background from '../assets/img/castell.png';
@@ -8,20 +8,29 @@ import { API_URL, PATH_FOR_HOTELS } from './constans/api';
 
 function TopSection() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
+  const [featurePlace, setfeaturePlace] = useState('');
   const [display, setDisplay] = useState('none');
   const [displayError, setDisplayError] = useState('none');
 
-  async function useEffect(searchName) {
-    const response = await fetch(`${API_URL}/${PATH_FOR_HOTELS}=${searchName}`);
-    console.log(response);
-    const result = await response.json();
-    return result;
-  }
+  useEffect(() => {
+    fetch(`${API_URL}/${PATH_FOR_HOTELS}=${featurePlace}`)
+      .then((response) => response.json())
+      .then((result) => {
+        setArrSearchPlace(result);
+      });
+  });
 
-  async function showAvailablePlace(e) {
+  // async function useEffect(searchName) {
+  //   const response = await fetch(`${API_URL}/${PATH_FOR_HOTELS}=${searchName}`);
+  //   console.log(response);
+  //   const result = await response.json();
+  //   return result;
+  // }
+
+  function showAvailablePlace(e) {
     e.preventDefault();
     const searchString = e.target.value.trim().toLowerCase();
-    const b = await useEffect(searchString);
+    setfeaturePlace(searchString);
 
     if (searchString.length === 0) {
       setDisplayError('block');
@@ -36,7 +45,7 @@ function TopSection() {
     //     item.country.trim().toLowerCase().includes(searchString),
     // );
 
-    setArrSearchPlace(b);
+    // setArrSearchPlace(b);
     setDisplay('block');
     setDisplayError('none');
   }
