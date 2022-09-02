@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
 import background from '../assets/img/castell.png';
@@ -11,17 +11,17 @@ function TopSection() {
   const [display, setDisplay] = useState('none');
   const [displayError, setDisplayError] = useState('none');
 
-  useEffect(() => {
-    fetch(`${API_URL}/${PATH_FOR_HOTELS}`)
-      .then((response) => response.json())
-      .then((result) => {
-        setArrSearchPlace(result);
-      });
-  }, []);
+  async function useEffect(searchName) {
+    const response = await fetch(`${API_URL}/${PATH_FOR_HOTELS}=${searchName}`);
+    console.log(response);
+    const result = await response.json();
+    return result;
+  }
 
-  function showAvailablePlace(e) {
+  async function showAvailablePlace(e) {
     e.preventDefault();
     const searchString = e.target.value.trim().toLowerCase();
+    const b = await useEffect(searchString);
 
     if (searchString.length === 0) {
       setDisplayError('block');
@@ -29,13 +29,14 @@ function TopSection() {
       return;
     }
 
-    const searchPlace = arrSearchPlace.filter(
-      (item) => item.name.trim().toLowerCase().includes(searchString) ||
-        item.city.trim().toLowerCase().includes(searchString) ||
-        item.country.trim().toLowerCase().includes(searchString),
-    );
+    // const searchPlace = arrSearchPlace.filter(
+    //   (item) =>
+    //     item.name.trim().toLowerCase().includes(searchString) ||
+    //     item.city.trim().toLowerCase().includes(searchString) ||
+    //     item.country.trim().toLowerCase().includes(searchString),
+    // );
 
-    setArrSearchPlace(searchPlace);
+    setArrSearchPlace(b);
     setDisplay('block');
     setDisplayError('none');
   }
