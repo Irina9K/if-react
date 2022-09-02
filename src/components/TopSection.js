@@ -16,7 +16,6 @@ function TopSection() {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${placeName}`)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setArrSearchPlace(result);
       });
   }, [placeName]);
