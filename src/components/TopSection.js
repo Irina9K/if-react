@@ -4,33 +4,26 @@ import '../assets/css/SectionAvailables.css';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
 import AvailableItem from './details/AvailableItem';
-import { API_URL, PATH_FOR_HOTELS } from './constans/api';
+import { API_URL, PATH_FOR_SEARCH_HOTELS } from './constans/api';
 
 function TopSection() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
-  const [featurePlace, setfeaturePlace] = useState('');
+  const [placeName, setPlaceName] = useState('');
   const [display, setDisplay] = useState('none');
   const [displayError, setDisplayError] = useState('none');
 
   useEffect(() => {
-    fetch(`${API_URL}/${PATH_FOR_HOTELS}=${featurePlace}`)
+    fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${placeName}`)
       .then((response) => response.json())
       .then((result) => {
         setArrSearchPlace(result);
       });
   });
 
-  // async function useEffect(searchName) {
-  //   const response = await fetch(`${API_URL}/${PATH_FOR_HOTELS}=${searchName}`);
-  //   console.log(response);
-  //   const result = await response.json();
-  //   return result;
-  // }
-
   function showAvailablePlace(e) {
     e.preventDefault();
     const searchString = e.target.value.trim().toLowerCase();
-    setfeaturePlace(searchString);
+    setPlaceName(searchString);
 
     if (searchString.length === 0) {
       setDisplayError('block');
@@ -38,14 +31,6 @@ function TopSection() {
       return;
     }
 
-    // const searchPlace = arrSearchPlace.filter(
-    //   (item) =>
-    //     item.name.trim().toLowerCase().includes(searchString) ||
-    //     item.city.trim().toLowerCase().includes(searchString) ||
-    //     item.country.trim().toLowerCase().includes(searchString),
-    // );
-
-    // setArrSearchPlace(b);
     setDisplay('block');
     setDisplayError('none');
   }
