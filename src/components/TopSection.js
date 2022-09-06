@@ -11,6 +11,7 @@ function TopSection() {
   const [placeName, setPlaceName] = useState('');
   const [display, setDisplay] = useState('none');
   const [displayError, setDisplayError] = useState('none');
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${placeName}`)
@@ -22,12 +23,12 @@ function TopSection() {
 
   function showAvailablePlace(e) {
     e.preventDefault();
-    const searchString = e.target.value.trim().toLowerCase();
-    setPlaceName(searchString);
+    setPlaceName(inputValue);
 
-    if (searchString.length === 0) {
+    if (inputValue.length === 0) {
+      setArrSearchPlace([]);
       setDisplayError('block');
-      setDisplay('none');
+      setDisplay('block');
       return;
     }
 
@@ -97,7 +98,8 @@ function TopSection() {
             <form className="input__group">
               <div className="container__forms--first">
                 <input
-                  onChange={showAvailablePlace}
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value.trim().toLowerCase())}
                   id="searchPlace"
                   className="input__group--input header__choice--city"
                   type="search"
@@ -188,7 +190,7 @@ function TopSection() {
                 </div>
               </div>
               <div className="container__forms--button">
-                <button className="btn header__button" type="reset">
+                <button onClick={showAvailablePlace} className="btn header__button" type="reset">
                   Search
                 </button>
               </div>
