@@ -9,7 +9,7 @@ import AvailableItem from './details/AvailableItem';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionHeaderTop from './SectionHeaderTop';
 
-function TopSection() {
+function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
@@ -23,11 +23,10 @@ function TopSection() {
   }, [inputValue]);
 
   function showAvailablePlace(e) {
-    // e.preventDefault();
+    e.preventDefault();
     setIsBtnActive(true);
     setInputValue(e.target.value);
     console.log(inputValue);
-    console.log(arrSearchPlace);
   }
   return (
     <>
@@ -68,8 +67,8 @@ function TopSection() {
                 <div className="forms__check--in">
                   <input
                     className="input__group--input header__choice--data"
-                    onFocus="(this.type='date')"
-                    onBlur="(this.type='text')"
+                    // onFocus="(this.type='date')"
+                    // onBlur="(this.type='text')"
                     type="text"
                     id="datain"
                     name="data"
@@ -82,8 +81,8 @@ function TopSection() {
                 <div className="forms__check--out">
                   <input
                     className="input__group--input header__choice--data"
-                    onFocus="(this.type='date')"
-                    onBlur="(this.type='text')"
+                    // onFocus="(this.type='date')"
+                    // onBlur="(this.type='text')"
                     type="text"
                     id="dataout"
                     name="data"
@@ -190,4 +189,4 @@ function TopSection() {
   );
 }
 
-export default TopSection;
+export default SectionFormTop;
