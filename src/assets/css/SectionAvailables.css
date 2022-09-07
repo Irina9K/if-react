@@ -25,6 +25,7 @@
   margin-bottom: 30px;
   display: block;
 }
+
 .free__errorNone {
   display: none;
 }
@@ -56,12 +57,23 @@
   min-height: 828px;
 }
 
-.main__homes--hotel,
-.main__free--hotel {
+.main__homes--hotel{
   display: flex;
   align-items: flex-start;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+.main__free--hotelBlock{
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: center;
+  /*display: block;*/
+}
+
+.main__free--hotelNone{
+  display: none;
 }
 
 .main__homes--element,
@@ -72,13 +84,9 @@
   /*width: calc(25% - 26px);*/
   margin: 8px;
 }
-.main__free--elementBlock {
+.main__free--element {
   margin: 0 70px;
   display: block;
-}
-
-.main__free--elementNone {
-  display: none;
 }
 
 .nav__link--country {

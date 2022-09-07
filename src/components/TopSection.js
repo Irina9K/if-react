@@ -1,29 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
+import app from '../assets/img/app_store.png';
+import google from '../assets/img/google_play.png';
 import AvailableItem from './details/AvailableItem';
-import { API_URL, PATH_FOR_SEARCH_HOTELS } from './constans/api';
+import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
+import SectionHeaderTop from './SectionHeaderTop';
 
 function TopSection() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
-  const [placeName, setPlaceName] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
 
-  useEffect(() => {
-    fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${placeName}`)
+  const handleClick = useCallback(() => {
+    fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
       .then((response) => response.json())
       .then((result) => {
         setArrSearchPlace(result);
       });
-  }, [placeName]);
+  }, [inputValue]);
 
   function showAvailablePlace(e) {
-    e.preventDefault();
+    // e.preventDefault();
     setIsBtnActive(true);
-    setPlaceName(inputValue);
+    setInputValue(e.target.value);
+    console.log(inputValue);
+    console.log(arrSearchPlace);
   }
   return (
     <>
@@ -33,52 +37,7 @@ function TopSection() {
         }}
       >
         <div className="container header__container">
-          <div className="section section__header--top">
-            <div className="header__logo">
-              <a href="#">
-                <svg className="logo__vector">
-                  <use xlinkHref={`${IconsSVG}#logo_vector`} />
-                </svg>
-              </a>
-            </div>
-
-            <nav className="nav">
-              <ul className="nav__list">
-                <li className="nav__item">
-                  <a className="nav__link" href="#">
-                    Stays
-                  </a>
-                </li>
-                <li className="nav__item">
-                  <a className="nav__link" href="#">
-                    Attractions
-                  </a>
-                </li>
-              </ul>
-            </nav>
-
-            <div className="header__icon">
-              <div className="header__icon--light">
-                <button className="btn header__button--light">
-                  <svg className="icon__night">
-                    <use xlinkHref={`${IconsSVG}#night`} />
-                  </svg>
-                </button>
-              </div>
-              <div className="header__icon--account">
-                <svg className="icon__account">
-                  <use xlinkHref={`${IconsSVG}#account_circle`} />
-                </svg>
-              </div>
-
-              <div className="burger__menu">
-                <svg className="icon__menu">
-                  <use xlinkHref={`${IconsSVG}#menu`} />
-                </svg>
-              </div>
-            </div>
-          </div>
-
+          <SectionHeaderTop />
           <section className="section section__header--foundation">
             <h1 className="header__name">
               Discover stays
@@ -89,7 +48,7 @@ function TopSection() {
               <div className="container__forms--first">
                 <input
                   value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value.trim().toLowerCase())}
+                  onChange={(e) => showAvailablePlace(e)}
                   id="searchPlace"
                   className="input__group--input header__choice--city"
                   type="search"
@@ -180,35 +139,37 @@ function TopSection() {
                 </div>
               </div>
               <div className="container__forms--button">
-                <button onClick={showAvailablePlace} className="btn header__button" type="reset">
+                <button onClick={handleClick} className="btn header__button" type="reset">
                   Search
                 </button>
               </div>
             </form>
             <div className="header__app">
               <a href="#" className="header__app--link">
-                <img src="../assets/img/google_play.png" alt="google_play" />
+                <img src={app} alt="google_play" />
               </a>
               <a href="#" className="header__app--link">
-                <img src="../assets/img/app_store.png" alt="app_store" />
+                <img src={google} alt="app_store" />
               </a>
             </div>
           </section>
         </div>
       </header>
       <div
-        className={
-          isBtnActive ?
-            'main__container--freeBlock  container'
-            : 'main__container--freeNone  container'
-        }
+        className={`container ${
+          isBtnActive ? 'main__container--freeBlock' : 'main__container--freeNone'
+        }`}
       >
         <section className="main__free">
           <div className="row__free">
             <div className="main__title title_free">
               <h2>Available hotels</h2>
             </div>
-            <div className="main__free--hotel">
+            <div
+              className={
+                inputValue.length === 0 ? 'main__free--hotelNone' : 'main__free--hotelBlock'
+              }
+            >
               {arrSearchPlace.map((place) => (
                 <AvailableItem
                   key={place.id}
@@ -216,16 +177,11 @@ function TopSection() {
                   name={place.name}
                   country={place.country}
                   imageUrl={place.imageUrl}
-                  inputValue
                 />
               ))}
-              <div
-                className={
-                  inputValue.length === 0 && isBtnActive ? 'free__errorBlock' : 'free__errorNone'
-                }
-              >
-                <p className="error__text">Please enter destination or hotel name</p>
-              </div>
+            </div>
+            <div className={inputValue.length === 0 ? 'free__errorBlock ' : 'free__errorNone '}>
+              <p className="error__text">Please enter destination or hotel name</p>
             </div>
           </div>
         </section>

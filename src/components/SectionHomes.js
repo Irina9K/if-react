@@ -1,7 +1,7 @@
 import '../assets/css/SectionHomes.css';
 import '../assets/css/Title.css';
 import React, { Component } from 'react';
-import { API_URL, PATH_FOR_HOTELS_POPULAR } from './constans/api';
+import { API_URL, PATH_FOR_HOTELS_POPULAR } from '../constans/api';
 
 class SectionHomes extends Component {
   state = {

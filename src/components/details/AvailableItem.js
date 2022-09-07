@@ -1,11 +1,9 @@
 import React from 'react';
 
-function AvailableItem({ city, country, name, imageUrl, inputValue }) {
+function AvailableItem({ city, country, name, imageUrl }) {
   return (
     <>
-      <figure
-        className={inputValue.length > 0 ? 'main__free--elementBlock' : 'main__free--elementNone'}
-      >
+      <figure className="main__free--element">
         <img
           src={imageUrl}
           alt={name}
