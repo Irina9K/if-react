@@ -9,9 +9,8 @@ import { API_URL, PATH_FOR_SEARCH_HOTELS } from './constans/api';
 function TopSection() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [placeName, setPlaceName] = useState('');
-  const [display, setDisplay] = useState('none');
-  const [displayError, setDisplayError] = useState('none');
   const [inputValue, setInputValue] = useState('');
+  const [isBtnActive, setIsBtnActive] = useState(false);
 
   useEffect(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${placeName}`)
@@ -23,17 +22,8 @@ function TopSection() {
 
   function showAvailablePlace(e) {
     e.preventDefault();
+    setIsBtnActive(true);
     setPlaceName(inputValue);
-
-    if (inputValue.length === 0) {
-      setArrSearchPlace([]);
-      setDisplayError('block');
-      setDisplay('block');
-      return;
-    }
-
-    setDisplay('block');
-    setDisplayError('none');
   }
   return (
     <>
@@ -207,10 +197,11 @@ function TopSection() {
         </div>
       </header>
       <div
-        className="container main__container--free"
-        style={{
-          display,
-        }}
+        className={
+          isBtnActive ?
+            'main__container--freeBlock  container'
+            : 'main__container--freeNone  container'
+        }
       >
         <section className="main__free">
           <div className="row__free">
@@ -225,13 +216,13 @@ function TopSection() {
                   name={place.name}
                   country={place.country}
                   imageUrl={place.imageUrl}
+                  inputValue
                 />
               ))}
               <div
-                className="free__error"
-                style={{
-                  display: displayError,
-                }}
+                className={
+                  inputValue.length === 0 && isBtnActive ? 'free__errorBlock' : 'free__errorNone'
+                }
               >
                 <p className="error__text">Please enter destination or hotel name</p>
               </div>
