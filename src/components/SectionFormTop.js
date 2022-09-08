@@ -5,9 +5,9 @@ import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
 import app from '../assets/img/app_store.png';
 import google from '../assets/img/google_play.png';
-import AvailableItem from './details/AvailableItem';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionHeaderTop from './SectionHeaderTop';
+import SectionFree from './SectionFree';
 
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
@@ -158,33 +158,7 @@ function SectionFormTop() {
           isBtnActive ? 'main__container--freeBlock' : 'main__container--freeNone'
         }`}
       >
-        <section className="main__free">
-          <div className="row__free">
-            <div className="main__title title_free">
-              <h2>Available hotels</h2>
-            </div>
-            <div
-              className={
-                inputValue.length === 0 || arrSearchPlace.length === 31 ?
-                  'main__free--hotelNone'
-                  : 'main__free--hotelBlock'
-              }
-            >
-              {arrSearchPlace.map((place) => (
-                <AvailableItem
-                  key={place.id}
-                  city={place.city}
-                  name={place.name}
-                  country={place.country}
-                  imageUrl={place.imageUrl}
-                />
-              ))}
-            </div>
-            <div className={inputValue.length === 0 ? 'free__errorBlock ' : 'free__errorNone '}>
-              <p className="error__text">Please enter destination or hotel name</p>
-            </div>
-          </div>
-        </section>
+        <SectionFree hotels={arrSearchPlace} inputValue={inputValue} />
       </div>
     </>
   );
