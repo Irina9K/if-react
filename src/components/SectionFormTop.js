@@ -20,13 +20,12 @@ function SectionFormTop() {
       .then((result) => {
         setArrSearchPlace(result);
       });
+    setIsBtnActive(true);
   }, [inputValue]);
 
   function showAvailablePlace(e) {
     e.preventDefault();
-    setIsBtnActive(true);
     setInputValue(e.target.value);
-    console.log(inputValue);
   }
   return (
     <>
@@ -166,7 +165,9 @@ function SectionFormTop() {
             </div>
             <div
               className={
-                inputValue.length === 0 ? 'main__free--hotelNone' : 'main__free--hotelBlock'
+                inputValue.length === 0 || arrSearchPlace.length === 31 ?
+                  'main__free--hotelNone'
+                  : 'main__free--hotelBlock'
               }
             >
               {arrSearchPlace.map((place) => (
