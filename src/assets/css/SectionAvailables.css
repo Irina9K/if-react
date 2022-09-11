@@ -7,11 +7,15 @@
   /*margin: 0 -8px;*/
 }
 
-.main__container--free {
-  /*display: none;*/
+.main__container--freeNone {
+  display: none;
 }
 
-.free__error {
+.main__container--freeBlock {
+  display: block;
+}
+
+.free__errorBlock {
   position: relative;
   background-color: #f3f3f4;
   border: 8px solid red;
@@ -19,6 +23,11 @@
   height: 200px;
   border-radius: 8px;
   margin-bottom: 30px;
+  display: block;
+}
+
+.free__errorNone {
+  display: none;
 }
 
 .error__text {
@@ -48,12 +57,23 @@
   min-height: 828px;
 }
 
-.main__homes--hotel,
-.main__free--hotel {
+.main__homes--hotel{
   display: flex;
   align-items: flex-start;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+.main__free--hotelBlock{
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: center;
+  /*display: block;*/
+}
+
+.main__free--hotelNone{
+  display: none;
 }
 
 .main__homes--element,
@@ -66,6 +86,7 @@
 }
 .main__free--element {
   margin: 0 70px;
+  display: block;
 }
 
 .nav__link--country {

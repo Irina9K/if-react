@@ -1,10 +1,10 @@
 import SectionHomes from './components/SectionHomes';
-import TopSection from './components/TopSection';
+import SectionFormTop from './components/SectionFormTop';
 
 function App() {
   return (
     <div>
-      <TopSection />
+      <SectionFormTop />
       <main>
         <SectionHomes />
       </main>
