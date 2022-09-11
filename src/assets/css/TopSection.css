@@ -264,7 +264,7 @@ input[type='date'] {
   width: 100%;
 }
 
-.container__forms--filter {
+.container__forms--filterBlock {
   position: absolute;
   padding: 22px;
   width: 259px;
@@ -273,6 +273,10 @@ input[type='date'] {
   border-radius: 8px;
   top: 115%;
   right: 16%;
+  display: block;
+}
+
+.container__forms--filterNone{
   display: none;
 }
 
@@ -347,7 +351,7 @@ input[type='date'] {
 }
 
 .wrapper__children--inf {
-  display: none;
+  /*display: none;*/
 }
 
 .header__app {

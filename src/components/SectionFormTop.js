@@ -8,11 +8,14 @@ import google from '../assets/img/google_play.png';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionHeaderTop from './SectionHeaderTop';
 import SectionFree from './SectionFree';
+import FilterItem from './FilterItem';
+// import WhatIsTheAge from './WhatIsTheAge';
 
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
+  const [filterStatus, setFilterStatus] = useState(false);
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -21,11 +24,17 @@ function SectionFormTop() {
         setArrSearchPlace(result);
       });
     setIsBtnActive(true);
+    setFilterStatus(false);
   }, [inputValue]);
 
   function showAvailablePlace(e) {
     e.preventDefault();
     setInputValue(e.target.value);
+  }
+
+  function showFilter(e) {
+    e.preventDefault();
+    setFilterStatus(true);
   }
   return (
     <>
@@ -96,6 +105,7 @@ function SectionFormTop() {
                 <div className="add__input add__second"></div>
                 <div className="add__input add__third"></div>
                 <input
+                    onClick={(e) => showFilter(e)}
                   className="input__group--input header__choice--people"
                   type="text"
                   id="people-room"
@@ -105,35 +115,15 @@ function SectionFormTop() {
                 <label className="input__group--label label__people" htmlFor="people-room">
                   {' '}
                 </label>
-                <div className="container__forms--filter">
-                  <div className="filter__item">
-                    <p className="filter__name">Adults</p>
-                    <p className="btn__filter--minus">-</p>
-                    <p className="filter__counter first__count">0</p>
-                    <p className="btn__filter--plus thirty__adults">+</p>
-                  </div>
-                  <div className="filter__item">
-                    <p className="filter__name">Children</p>
-                    <p className="btn__filter--minus">-</p>
-                    <p className="filter__counter second__count" id="hidden__counter">
-                      0
-                    </p>
-                    <p className="btn__filter--plus fifteen" id="addInf">
-                      +
-                    </p>
-                  </div>
-                  <div className="filter__item">
-                    <p className="filter__name">Rooms</p>
-                    <p className="btn__filter--minus">-</p>
-                    <p className="filter__counter third__count">0</p>
-                    <p className="btn__filter--plus thirty__rooms">+</p>
-                  </div>
-                  <div className="wrapper__children--inf">
-                    <div className="filter__age">
-                      What is the age of the child you’re travelling with?
-                    </div>
-                    <div className="wrapper__select"></div>
-                  </div>
+                <div
+                  className={
+                    filterStatus ? 'container__forms--filterBlock' : 'container__forms--filterNone'
+                  }
+                >
+                  <FilterItem value={'Adults'} />
+                  <FilterItem value={'Children'} />
+                  <FilterItem value={'Rooms'} />
+                  {/* <WhatIsTheAge /> */}
                 </div>
               </div>
               <div className="container__forms--button">
