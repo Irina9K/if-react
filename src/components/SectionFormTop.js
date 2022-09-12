@@ -8,14 +8,13 @@ import google from '../assets/img/google_play.png';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionHeaderTop from './SectionHeaderTop';
 import SectionFree from './SectionFree';
-import FilterItem from './FilterItem';
+import FilterContainer from './FilterItem';
 
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [filterStatus, setFilterStatus] = useState(false);
-
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -116,15 +115,7 @@ function SectionFormTop() {
                 <label className="input__group--label label__people" htmlFor="people-room">
                   {' '}
                 </label>
-                <div
-                  className={
-                    filterStatus ? 'container__forms--filterBlock' : 'container__forms--filterNone'
-                  }
-                >
-                  <FilterItem value={'Adults'} />
-                  <FilterItem value={'Children'}/>
-                  <FilterItem value={'Rooms'} />
-                </div>
+                <FilterContainer filterStatus={filterStatus}/>
               </div>
               <div className="container__forms--button">
                 <button onClick={handleClick} className="btn header__button" type="reset">

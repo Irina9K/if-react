@@ -1,8 +1,28 @@
 import React, { useState } from 'react';
+import WhatIsTheAge from './WhatIsTheAge';
 
-const FilterItem = ({ value}) => {
+const FilterContainer = ({ filterStatus }) => {
+  const [showQuestion, setShowQuestion] = useState(false);
+
+  return (
+    <div
+      className={filterStatus ? 'container__forms--filterBlock' : 'container__forms--filterNone'}
+    >
+      <FilterItem value={'Adults'} />
+      <FilterItem
+        value={'Children'}
+        showQuestion={showQuestion}
+        setShowQuestion={setShowQuestion}
+      />
+      <FilterItem value={'Rooms'} />
+      <WhatIsTheAge showQuestion={showQuestion} />
+    </div>
+  );
+};
+
+const FilterItem = ({ value, showQuestion, setShowQuestion }) => {
   const [count, setCount] = useState(0);
-
+  console.log(showQuestion);
   function increment() {
     if (value === 'Adults' && count === 30) {
       return;
@@ -37,27 +57,19 @@ const FilterItem = ({ value}) => {
         <p className="filter__counter first__count">{count}</p>
         <p
           className={
-            count === 30 || (count === 10 && value === 'Children')
-              ? 'btn__filter--minus'
+            count === 30 || (count === 10 && value === 'Children') ?
+              'btn__filter--minus'
               : 'btn__filter--plus'
           }
           onClick={increment}
         >
           +
         </p>
-      </div>
-      <div
-        className={
-          value === 'Children' && count > 0
-            ? 'wrapper__children--infBlock'
-            : 'wrapper__children--infNone'
-        }
-      >
-        <div className="filter__age">What is the age of the child you’re travelling with?</div>
-        <div className="wrapper__select"></div>
+        {value === 'Children' && count > 0 && setShowQuestion(true)}
+        {value === 'Children' && count === 0 && setShowQuestion(false)}
       </div>
     </>
   );
 };
 
-export default FilterItem;
+export default FilterContainer;
