@@ -9,13 +9,13 @@ import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionHeaderTop from './SectionHeaderTop';
 import SectionFree from './SectionFree';
 import FilterItem from './FilterItem';
-// import WhatIsTheAge from './WhatIsTheAge';
 
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [filterStatus, setFilterStatus] = useState(false);
+
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -36,6 +36,7 @@ function SectionFormTop() {
     e.preventDefault();
     setFilterStatus(true);
   }
+
   return (
     <>
       <header
@@ -105,7 +106,7 @@ function SectionFormTop() {
                 <div className="add__input add__second"></div>
                 <div className="add__input add__third"></div>
                 <input
-                    onClick={(e) => showFilter(e)}
+                  onClick={(e) => showFilter(e)}
                   className="input__group--input header__choice--people"
                   type="text"
                   id="people-room"
@@ -121,9 +122,8 @@ function SectionFormTop() {
                   }
                 >
                   <FilterItem value={'Adults'} />
-                  <FilterItem value={'Children'} />
+                  <FilterItem value={'Children'}/>
                   <FilterItem value={'Rooms'} />
-                  {/* <WhatIsTheAge /> */}
                 </div>
               </div>
               <div className="container__forms--button">

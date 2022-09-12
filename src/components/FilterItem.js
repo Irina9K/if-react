@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 
-const FilterItem = ({ value }) => {
+const FilterItem = ({ value}) => {
   const [count, setCount] = useState(0);
 
   function increment() {
     if (value === 'Adults' && count === 30) {
       return;
     }
-
-    // if (value === 'Children' && count > 0) {
-    // }
 
     if (value === 'Children' && count === 10) {
       return;
@@ -40,14 +37,24 @@ const FilterItem = ({ value }) => {
         <p className="filter__counter first__count">{count}</p>
         <p
           className={
-            count === 30 || (count === 10 && value === 'Children') ?
-              'btn__filter--minus'
+            count === 30 || (count === 10 && value === 'Children')
+              ? 'btn__filter--minus'
               : 'btn__filter--plus'
           }
           onClick={increment}
         >
           +
         </p>
+      </div>
+      <div
+        className={
+          value === 'Children' && count > 0
+            ? 'wrapper__children--infBlock'
+            : 'wrapper__children--infNone'
+        }
+      >
+        <div className="filter__age">What is the age of the child you’re travelling with?</div>
+        <div className="wrapper__select"></div>
       </div>
     </>
   );

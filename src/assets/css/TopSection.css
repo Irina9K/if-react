@@ -350,8 +350,12 @@ input[type='date'] {
   color: #3077c6;
 }
 
-.wrapper__children--inf {
-  /*display: none;*/
+.wrapper__children--infBlock {
+  display: block;
+}
+
+.wrapper__children--infNone{
+  display: none;
 }
 
 .header__app {
