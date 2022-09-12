@@ -1,41 +1,88 @@
 import React, { useState } from 'react';
 import WhatIsTheAge from './WhatIsTheAge';
 
-const FilterContainer = ({ filterStatus }) => {
+const FilterContainer = ({ filterStatus, showFilter }) => {
   const [showQuestion, setShowQuestion] = useState(false);
+  const [numberAdults, setNumberAdults] = useState(0);
+  const [numberChildren, setNumberChildren] = useState(0);
+  const [numberRooms, setNumberRooms] = useState(0);
 
   return (
-    <div
-      className={filterStatus ? 'container__forms--filterBlock' : 'container__forms--filterNone'}
-    >
-      <FilterItem value={'Adults'} />
-      <FilterItem
-        value={'Children'}
-        setShowQuestion={setShowQuestion}
+    <>
+      <div className="add__input add__first">{numberAdults} Adults</div>
+      <div className="add__input add__second">{numberChildren} Children</div>
+      <div className="add__input add__third">{numberRooms} Rooms</div>
+
+      <input
+        onClick={(e) => showFilter(e)}
+        className="input__group--input header__choice--people"
+        type="text"
+        id="people-room"
+        name="people-room"
+        autoComplete="off"
       />
-      <FilterItem value={'Rooms'} />
-      <WhatIsTheAge showQuestion={showQuestion}/>
-    </div>
+      <label className="input__group--label label__people" htmlFor="people-room">
+        {' '}
+      </label>
+      <div
+        className={filterStatus ? 'container__forms--filterBlock' : 'container__forms--filterNone'}
+      >
+        <FilterItem
+          value={'Adults'}
+          setNumberAdults={setNumberAdults}
+          numberAdults={numberAdults}
+        />
+        <FilterItem
+          value={'Children'}
+          setShowQuestion={setShowQuestion}
+          setNumberChildren={setNumberChildren}
+          numberChildren={numberChildren}
+        />
+        <FilterItem value={'Rooms'} setNumberRooms={setNumberRooms} numberRooms={numberRooms} />
+        <WhatIsTheAge showQuestion={showQuestion} />
+      </div>
+    </>
   );
 };
 
-const FilterItem = ({ value, setShowQuestion }) => {
+const FilterItem = ({
+  value,
+  setShowQuestion,
+  setNumberAdults,
+  numberAdults,
+  setNumberChildren,
+  numberChildren,
+  setNumberRooms,
+  numberRooms,
+}) => {
   const [count, setCount] = useState(0);
 
   function increment() {
-    if (value === 'Adults' && count === 30) {
-      return;
-    }
-
-    if (value === 'Children' && count === 10) {
-      return;
-    }
-
-    if (value === 'Rooms' && count === 30) {
+    if (
+      (value === 'Adults' && count === 30) ||
+      (value === 'Children' && count === 10) ||
+      (value === 'Rooms' && count === 30)
+    ) {
       return;
     }
 
     setCount(count + 1);
+
+    if (value === 'Adults') {
+      setNumberAdults(numberAdults + 1);
+    }
+
+    if (value === 'Children') {
+      setNumberChildren(numberChildren + 1);
+    }
+
+    if (value === 'Rooms') {
+      setNumberRooms(numberRooms + 1);
+    }
+
+    // value === 'Adults' && setNumberAdults(numberAdults + 1);
+    // value === 'Children' && setNumberChildren(numberChildren + 1) ;
+    // value === 'Rooms' && setNumberRooms(numberRooms + 1) ;
   }
 
   function decrement() {
@@ -44,6 +91,21 @@ const FilterItem = ({ value, setShowQuestion }) => {
     }
 
     setCount(count - 1);
+
+    if (value === 'Adults') {
+      setNumberAdults(numberAdults - 1);
+    }
+
+    if (value === 'Children') {
+      setNumberChildren(numberChildren - 1);
+    }
+
+    if (value === 'Rooms') {
+      setNumberRooms(numberRooms - 1);
+    }
+    // value === 'Adults' && setNumberAdults(numberAdults - 1);
+    // value === 'Children' && setNumberChildren(numberChildren - 1) ;
+    // value === 'Rooms' && setNumberRooms(numberRooms - 1);
   }
 
   return (
@@ -56,8 +118,8 @@ const FilterItem = ({ value, setShowQuestion }) => {
         <p className="filter__counter first__count">{count}</p>
         <p
           className={
-            count === 30 || (count === 10 && value === 'Children') ?
-              'btn__filter--minus'
+            count === 30 || (count === 10 && value === 'Children')
+              ? 'btn__filter--minus'
               : 'btn__filter--plus'
           }
           onClick={increment}

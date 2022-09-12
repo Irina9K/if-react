@@ -101,21 +101,7 @@ function SectionFormTop() {
                 </div>
               </div>
               <div className="container__forms--third">
-                <div className="add__input add__first"></div>
-                <div className="add__input add__second"></div>
-                <div className="add__input add__third"></div>
-                <input
-                  onClick={(e) => showFilter(e)}
-                  className="input__group--input header__choice--people"
-                  type="text"
-                  id="people-room"
-                  name="people-room"
-                  autoComplete="off"
-                />
-                <label className="input__group--label label__people" htmlFor="people-room">
-                  {' '}
-                </label>
-                <FilterContainer filterStatus={filterStatus} />
+                <FilterContainer filterStatus={filterStatus} showFilter={showFilter}/>
               </div>
               <div className="container__forms--button">
                 <button onClick={handleClick} className="btn header__button" type="reset">
