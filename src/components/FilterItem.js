@@ -11,18 +11,17 @@ const FilterContainer = ({ filterStatus }) => {
       <FilterItem value={'Adults'} />
       <FilterItem
         value={'Children'}
-        showQuestion={showQuestion}
         setShowQuestion={setShowQuestion}
       />
       <FilterItem value={'Rooms'} />
-      <WhatIsTheAge showQuestion={showQuestion} />
+      <WhatIsTheAge showQuestion={showQuestion}/>
     </div>
   );
 };
 
-const FilterItem = ({ value, showQuestion, setShowQuestion }) => {
+const FilterItem = ({ value, setShowQuestion }) => {
   const [count, setCount] = useState(0);
-  console.log(showQuestion);
+
   function increment() {
     if (value === 'Adults' && count === 30) {
       return;

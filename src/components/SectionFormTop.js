@@ -115,7 +115,7 @@ function SectionFormTop() {
                 <label className="input__group--label label__people" htmlFor="people-room">
                   {' '}
                 </label>
-                <FilterContainer filterStatus={filterStatus}/>
+                <FilterContainer filterStatus={filterStatus} />
               </div>
               <div className="container__forms--button">
                 <button onClick={handleClick} className="btn header__button" type="reset">
