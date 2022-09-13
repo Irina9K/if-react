@@ -12,7 +12,6 @@ const FilterContainer = ({ filterStatus, showFilter }) => {
       <div className="add__input add__first">{numberAdults} Adults</div>
       <div className="add__input add__second">{numberChildren} Children</div>
       <div className="add__input add__third">{numberRooms} Rooms</div>
-
       <input
         onClick={(e) => showFilter(e)}
         className="input__group--input header__choice--people"
@@ -39,7 +38,7 @@ const FilterContainer = ({ filterStatus, showFilter }) => {
           numberChildren={numberChildren}
         />
         <FilterItem value={'Rooms'} setNumberRooms={setNumberRooms} numberRooms={numberRooms} />
-        <WhatIsTheAge showQuestion={showQuestion} />
+        <WhatIsTheAge showQuestion={showQuestion} numberChildren={numberChildren} />
       </div>
     </>
   );
@@ -79,10 +78,6 @@ const FilterItem = ({
     if (value === 'Rooms') {
       setNumberRooms(numberRooms + 1);
     }
-
-    // value === 'Adults' && setNumberAdults(numberAdults + 1);
-    // value === 'Children' && setNumberChildren(numberChildren + 1) ;
-    // value === 'Rooms' && setNumberRooms(numberRooms + 1) ;
   }
 
   function decrement() {
@@ -103,9 +98,6 @@ const FilterItem = ({
     if (value === 'Rooms') {
       setNumberRooms(numberRooms - 1);
     }
-    // value === 'Adults' && setNumberAdults(numberAdults - 1);
-    // value === 'Children' && setNumberChildren(numberChildren - 1) ;
-    // value === 'Rooms' && setNumberRooms(numberRooms - 1);
   }
 
   return (
@@ -118,8 +110,8 @@ const FilterItem = ({
         <p className="filter__counter first__count">{count}</p>
         <p
           className={
-            count === 30 || (count === 10 && value === 'Children')
-              ? 'btn__filter--minus'
+            count === 30 || (count === 10 && value === 'Children') ?
+              'btn__filter--minus'
               : 'btn__filter--plus'
           }
           onClick={increment}

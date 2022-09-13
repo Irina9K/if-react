@@ -101,7 +101,7 @@ function SectionFormTop() {
                 </div>
               </div>
               <div className="container__forms--third">
-                <FilterContainer filterStatus={filterStatus} showFilter={showFilter}/>
+                <FilterContainer filterStatus={filterStatus} showFilter={showFilter} />
               </div>
               <div className="container__forms--button">
                 <button onClick={handleClick} className="btn header__button" type="reset">
