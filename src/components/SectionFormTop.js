@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
+import DatePicker from 'react-datepicker';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
 import app from '../assets/img/app_store.png';
@@ -10,11 +11,15 @@ import SectionHeaderTop from './SectionHeaderTop';
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
 
+import 'react-datepicker/dist/react-datepicker.css';
+
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [filterStatus, setFilterStatus] = useState(false);
+  const [dateIn, setDateIn] = useState(null);
+  const [dateOut, setDateOut] = useState(null);
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -73,13 +78,11 @@ function SectionFormTop() {
               </div>
               <div className="container__forms--second">
                 <div className="forms__check--in">
-                  <input
+                  <DatePicker
                     className="input__group--input header__choice--data"
-                    // onFocus="(this.type='date')"
-                    // onBlur="(this.type='text')"
-                    type="text"
-                    id="datain"
-                    name="data"
+                    selected={dateIn}
+                    onChange={(date) => setDateIn(date)}
+                    dateFormat='dd.MM.yy'
                   />
                   <label className="input__group--label label__data" htmlFor="datain">
                     Check-in <span>date</span>
@@ -87,13 +90,11 @@ function SectionFormTop() {
                 </div>
 
                 <div className="forms__check--out">
-                  <input
+                  <DatePicker
                     className="input__group--input header__choice--data"
-                    // onFocus="(this.type='date')"
-                    // onBlur="(this.type='text')"
-                    type="text"
-                    id="dataout"
-                    name="data"
+                    selected={dateOut}
+                    onChange={(date) => setDateOut(date)}
+                    dateFormat='dd.MM.yy'
                   />
                   <label className="input__group--label label__data" htmlFor="dataout">
                     Check-out <span>date</span>
