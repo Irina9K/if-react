@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
+import DatePicker from 'react-datepicker';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
 import app from '../assets/img/app_store.png';
@@ -8,11 +9,17 @@ import google from '../assets/img/google_play.png';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionHeaderTop from './SectionHeaderTop';
 import SectionFree from './SectionFree';
+import FilterContainer from './FilterItem';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
+  const [filterStatus, setFilterStatus] = useState(false);
+  const [dateIn, setDateIn] = useState(null);
+  const [dateOut, setDateOut] = useState(null);
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -21,12 +28,19 @@ function SectionFormTop() {
         setArrSearchPlace(result);
       });
     setIsBtnActive(true);
+    setFilterStatus(false);
   }, [inputValue]);
 
   function showAvailablePlace(e) {
     e.preventDefault();
     setInputValue(e.target.value);
   }
+
+  function showFilter(e) {
+    e.preventDefault();
+    setFilterStatus(true);
+  }
+
   return (
     <>
       <header
@@ -64,13 +78,11 @@ function SectionFormTop() {
               </div>
               <div className="container__forms--second">
                 <div className="forms__check--in">
-                  <input
+                  <DatePicker
                     className="input__group--input header__choice--data"
-                    // onFocus="(this.type='date')"
-                    // onBlur="(this.type='text')"
-                    type="text"
-                    id="datain"
-                    name="data"
+                    selected={dateIn}
+                    onChange={(date) => setDateIn(date)}
+                    dateFormat="dd.MM.yy"
                   />
                   <label className="input__group--label label__data" htmlFor="datain">
                     Check-in <span>date</span>
@@ -78,13 +90,11 @@ function SectionFormTop() {
                 </div>
 
                 <div className="forms__check--out">
-                  <input
+                  <DatePicker
                     className="input__group--input header__choice--data"
-                    // onFocus="(this.type='date')"
-                    // onBlur="(this.type='text')"
-                    type="text"
-                    id="dataout"
-                    name="data"
+                    selected={dateOut}
+                    onChange={(date) => setDateOut(date)}
+                    dateFormat="dd.MM.yy"
                   />
                   <label className="input__group--label label__data" htmlFor="dataout">
                     Check-out <span>date</span>
@@ -92,49 +102,7 @@ function SectionFormTop() {
                 </div>
               </div>
               <div className="container__forms--third">
-                <div className="add__input add__first"></div>
-                <div className="add__input add__second"></div>
-                <div className="add__input add__third"></div>
-                <input
-                  className="input__group--input header__choice--people"
-                  type="text"
-                  id="people-room"
-                  name="people-room"
-                  autoComplete="off"
-                />
-                <label className="input__group--label label__people" htmlFor="people-room">
-                  {' '}
-                </label>
-                <div className="container__forms--filter">
-                  <div className="filter__item">
-                    <p className="filter__name">Adults</p>
-                    <p className="btn__filter--minus">-</p>
-                    <p className="filter__counter first__count">0</p>
-                    <p className="btn__filter--plus thirty__adults">+</p>
-                  </div>
-                  <div className="filter__item">
-                    <p className="filter__name">Children</p>
-                    <p className="btn__filter--minus">-</p>
-                    <p className="filter__counter second__count" id="hidden__counter">
-                      0
-                    </p>
-                    <p className="btn__filter--plus fifteen" id="addInf">
-                      +
-                    </p>
-                  </div>
-                  <div className="filter__item">
-                    <p className="filter__name">Rooms</p>
-                    <p className="btn__filter--minus">-</p>
-                    <p className="filter__counter third__count">0</p>
-                    <p className="btn__filter--plus thirty__rooms">+</p>
-                  </div>
-                  <div className="wrapper__children--inf">
-                    <div className="filter__age">
-                      What is the age of the child you’re travelling with?
-                    </div>
-                    <div className="wrapper__select"></div>
-                  </div>
-                </div>
+                <FilterContainer filterStatus={filterStatus} showFilter={showFilter} />
               </div>
               <div className="container__forms--button">
                 <button onClick={handleClick} className="btn header__button" type="reset">
