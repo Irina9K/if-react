@@ -82,7 +82,7 @@ function SectionFormTop() {
                     className="input__group--input header__choice--data"
                     selected={dateIn}
                     onChange={(date) => setDateIn(date)}
-                    dateFormat='dd.MM.yy'
+                    dateFormat="dd.MM.yy"
                   />
                   <label className="input__group--label label__data" htmlFor="datain">
                     Check-in <span>date</span>
@@ -94,7 +94,7 @@ function SectionFormTop() {
                     className="input__group--input header__choice--data"
                     selected={dateOut}
                     onChange={(date) => setDateOut(date)}
-                    dateFormat='dd.MM.yy'
+                    dateFormat="dd.MM.yy"
                   />
                   <label className="input__group--label label__data" htmlFor="dataout">
                     Check-out <span>date</span>

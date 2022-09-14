@@ -9,9 +9,9 @@ const FilterContainer = ({ filterStatus, showFilter }) => {
 
   return (
     <>
-      <div onClick={(e) => showFilter(e)} className="add__input add__first">{numberAdults} Adults</div>
-      <div onClick={(e) => showFilter(e)} className="add__input add__second">{numberChildren} Children</div>
-      <div onClick={(e) => showFilter(e)} className="add__input add__third">{numberRooms} Rooms</div>
+      <div onClick={(e) => showFilter(e)} className="add__input add__first">
+        {numberAdults} Adults {numberChildren} Children {numberRooms} Rooms
+      </div>
       <input
         onClick={(e) => showFilter(e)}
         className="input__group--input header__choice--people"
