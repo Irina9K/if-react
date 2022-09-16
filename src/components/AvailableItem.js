@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import PageHotel from './PageHotel';
 
-function AvailableItem({ city, country, name, imageUrl }) {
+function AvailableItem({ city, country, name, imageUrl, keyId }) {
   return (
     <>
       <figure className="main__free--element">
@@ -15,7 +15,7 @@ function AvailableItem({ city, country, name, imageUrl }) {
           }}
         />
         <figcaption className="main__name--img">
-          <Link to="/hotels" className="nav__link--country">
+          <Link to={`/hotels/${keyId}`} className="nav__link--country">
             {name}
           </Link>
 
@@ -27,7 +27,7 @@ function AvailableItem({ city, country, name, imageUrl }) {
         </figcaption>
       </figure>
       <Routes>
-        <Route path="/hotels" element={<PageHotel />} />
+        <Route path={`/hotels/${keyId}`} element={<PageHotel />} />
       </Routes>
     </>
   );

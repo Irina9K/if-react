@@ -15,8 +15,10 @@ const SectionFree = ({ hotels, inputValue }) => (
         }
       >
         {hotels.map((place) => (
+
           <AvailableItem
             key={place.id}
+            keyId={place.id}
             city={place.city}
             name={place.name}
             country={place.country}
