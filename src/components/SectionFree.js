@@ -2,7 +2,6 @@ import React from 'react';
 import AvailableItem from './AvailableItem';
 
 const SectionFree = ({ hotels, inputValue }) => (
-
   <section className="main__free">
     <div className="row__free">
       <div className="main__title title_free">

@@ -31,10 +31,10 @@ function AvailableItem({ city, country, name, imageUrl, keyId }) {
           path={`/hotels/${keyId}`}
           element={
             <HotelDetails
-              city={city}
-              country={country}
-              name={name}
-              imageUrl={imageUrl}
+              // city={city}
+              // country={country}
+              // name={name}
+              // imageUrl={imageUrl}
               keyId={keyId}
             />
           }
