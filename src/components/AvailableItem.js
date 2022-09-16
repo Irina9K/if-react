@@ -15,8 +15,7 @@ function AvailableItem({ city, country, name, imageUrl }) {
           }}
         />
         <figcaption className="main__name--img">
-
-          <Link to='/posts' className="nav__link--country">
+          <Link to="/hotels" className="nav__link--country">
             {name}
           </Link>
 
@@ -28,7 +27,7 @@ function AvailableItem({ city, country, name, imageUrl }) {
         </figcaption>
       </figure>
       <Routes>
-        <Route path='/posts' element={<PageHotel/>} />
+        <Route path="/hotels" element={<PageHotel />} />
       </Routes>
     </>
   );
