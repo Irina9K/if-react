@@ -84,9 +84,14 @@
   /*width: calc(25% - 26px);*/
   margin: 8px;
 }
-.main__free--element {
+.main__free--elementBlock {
   margin: 0 70px;
   display: block;
+}
+
+.main__free--elementNone {
+  margin: 0 70px;
+  display: none;
 }
 
 .nav__link--country {

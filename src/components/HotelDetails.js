@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { API_URL, PATH_FOR_ROUTER } from '../constans/api';
 
-const HotelDetails = ({ /* city, country, name, imageUrl, */ keyId }) => {
+const HotelDetails = ({ hotelId }) => {
   const [arrHotelDetails, setArrHotelDetails] = useState([]);
+  const param = useParams();
 
   useEffect(() => {
-    fetch(`${API_URL}/${PATH_FOR_ROUTER}/${keyId}`)
+    fetch(`${API_URL}/${PATH_FOR_ROUTER}/${param.hotelId}`)
       .then((response) => response.json())
       .then((result) => {
         setArrHotelDetails(result);
-        console.log(arrHotelDetails);
       });
-  }, [keyId]);
+  }, [hotelId]);
+
   return (
-    <figure className="main__free--element">
+    <figure className="main__free--elementBlock">
       <img
         src={arrHotelDetails.imageUrl}
         alt={arrHotelDetails.name}
@@ -24,10 +25,10 @@ const HotelDetails = ({ /* city, country, name, imageUrl, */ keyId }) => {
         }}
       />
       <figcaption className="main__name--imgRouter">
-        <Link to={`/hotels/${keyId}`} className="nav__link--country">
+        <Link to={`/hotels/${hotelId}`} className="nav__link--country">
           {arrHotelDetails.name}
         </Link>
-<br/>
+        <br />
         <a className="main__name--country">
           {arrHotelDetails.city}
           <br />
