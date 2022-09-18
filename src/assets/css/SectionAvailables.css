@@ -87,6 +87,7 @@
 .main__free--elementBlock {
   margin: 0 70px;
   display: block;
+  text-align: center;
 }
 
 .main__free--elementNone {
@@ -106,6 +107,10 @@
 .main__free--element .main__name--imgRouter {
   font-size: 35px;
   text-align: center;
+}
+
+.main__name--imgRouter{
+ font-size: 35px;
 }
 
 .main__name--img

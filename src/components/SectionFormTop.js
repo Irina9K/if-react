@@ -8,6 +8,7 @@ import app from '../assets/img/app_store.png';
 import google from '../assets/img/google_play.png';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionHeaderTop from './SectionHeaderTop';
+// eslint-disable-next-line import/no-cycle
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
 
