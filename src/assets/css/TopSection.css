@@ -14,13 +14,16 @@
 .header__container {
   min-height: 900px;
   max-width: 1232px;
-  padding: 51px 0;
+
 }
 
 .section__header--top {
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
+  background-color: #010435;
+  margin-bottom: 191px;
+  padding: 51px 0;
 }
 
 .logo__vector {
@@ -116,10 +119,6 @@
   filter: invert(22%) sepia(45%) saturate(672%) hue-rotate(344deg) brightness(95%) contrast(102%);
 }
 
-.section__header--top {
-  margin-bottom: 191px;
-}
-
 .header__name {
   color: #ffffff;
   font-style: normal;
@@ -170,7 +169,7 @@
   display: block;
 }
 
-.calendarInNone{
+.calendarInNone {
   display: none;
 }
 
@@ -183,7 +182,7 @@
   display: block;
 }
 
-.calendarOutNone{
+.calendarOutNone {
   display: none;
 }
 

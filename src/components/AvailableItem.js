@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-// eslint-disable-next-line import/no-cycle
 import HotelDetails from './HotelDetails';
 
 function AvailableItem({ city, country, name, imageUrl, hotelId }) {

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { API_URL, PATH_FOR_ROUTER } from '../constans/api';
-// eslint-disable-next-line import/no-cycle
-import SectionFormTop from './SectionFormTop';
-import SectionFooter from './SectionFooter';
-
+import Layout from './Layout';
 
 const HotelDetails = ({ hotelId }) => {
   const [arrHotelDetails, setArrHotelDetails] = useState([]);
@@ -20,34 +17,34 @@ const HotelDetails = ({ hotelId }) => {
 
   return (
     <>
-      <SectionFormTop />
-      <figure
-        className="main__free--elementBlock"
-        style={{
-          paddingBottom: `${45}px`,
-        }}
-      >
-        <img
-          src={arrHotelDetails.imageUrl}
-          alt={arrHotelDetails.name}
+      <Layout>
+        <figure
+          className="main__free--elementBlock"
           style={{
-            height: `${596}px`,
-            width: `${596}px`,
+            paddingBottom: `${45}px`,
           }}
-        />
-        <figcaption className="main__name--imgRouter">
-          <Link to={`/hotels/${hotelId}`} className="nav__link--country">
-            {arrHotelDetails.name}
-          </Link>
-          <br />
-          <a className="main__name--country">
-            {arrHotelDetails.city}
+        >
+          <img
+            src={arrHotelDetails.imageUrl}
+            alt={arrHotelDetails.name}
+            style={{
+              height: `${596}px`,
+              width: `${596}px`,
+            }}
+          />
+          <figcaption className="main__name--imgRouter">
+            <Link to={`/hotels/${hotelId}`} className="nav__link--country">
+              {arrHotelDetails.name}
+            </Link>
             <br />
-            {arrHotelDetails.country}
-          </a>
-        </figcaption>
-      </figure>
-      <SectionFooter />
+            <a className="main__name--country">
+              {arrHotelDetails.city}
+              <br />
+              {arrHotelDetails.country}
+            </a>
+          </figcaption>
+        </figure>
+      </Layout>
     </>
   );
 };

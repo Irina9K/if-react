@@ -1,6 +1,4 @@
 import React from 'react';
-
-// eslint-disable-next-line import/no-cycle
 import AvailableItem from './AvailableItem';
 
 const SectionFree = ({ hotels, inputValue }) => (
