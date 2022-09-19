@@ -7,7 +7,6 @@ import IconsSVG from '../assets/img/sprite.svg';
 import app from '../assets/img/app_store.png';
 import google from '../assets/img/google_play.png';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
-import SectionHeaderTop from './SectionHeaderTop';
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
 
@@ -48,9 +47,7 @@ function SectionFormTop() {
           backgroundImage: `url(${background})`,
         }}
       >
-
         <div className="container header__container">
-          <SectionHeaderTop />
           <section className="section section__header--foundation">
             <h1 className="header__name">
               Discover stays

@@ -22,8 +22,8 @@
   display: flex;
   justify-content: space-between;
   background-color: #010435;
-  margin-bottom: 191px;
-  padding: 51px 0;
+  /*margin-bottom: 191px;*/
+  padding: 51px 104px;
 }
 
 .logo__vector {
@@ -125,6 +125,7 @@
   font-size: 50px;
   font-weight: 500;
   margin-bottom: 145px;
+  padding-top: 140px;
 }
 
 .input__group {

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import HotelDetails from './HotelDetails';
+import { Link } from 'react-router-dom';
 
 function AvailableItem({ city, country, name, imageUrl, hotelId }) {
   return (
@@ -26,9 +25,6 @@ function AvailableItem({ city, country, name, imageUrl, hotelId }) {
           </a>
         </figcaption>
       </figure>
-      <Routes>
-        <Route path={`/hotels/${hotelId}`} element={<HotelDetails hotelId={hotelId} />} />
-      </Routes>
     </>
   );
 }

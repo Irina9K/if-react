@@ -1,0 +1,24 @@
+@import 'fonts.css';
+
+.container__sign--in {
+    display: none;
+  position: absolute;
+  width: 400px;
+  height: 364px;
+  top: 268px;
+  left: 520px;
+  background-color: #ffffff;
+  border: 1px solid #cecece;
+}
+
+.title__sign{
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+}
