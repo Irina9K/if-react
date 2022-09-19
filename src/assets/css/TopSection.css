@@ -14,10 +14,10 @@
 .header__container {
   min-height: 900px;
   max-width: 1232px;
-
 }
 
 .section__header--top {
+  position: relative;
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
@@ -161,6 +161,7 @@
   position: relative;
   width: 50%;
 }
+
 .calendarInBlock {
   position: absolute;
   width: 207px;
@@ -191,10 +192,10 @@
   width: 25%;
 }
 
-label {
-  position: absolute;
-  transition: 0.5s;
-}
+/*label{*/
+/*  position: absolute;*/
+/*  transition: 0.5s;*/
+/*}*/
 
 .input__group--label {
   color: #383838;
@@ -202,6 +203,8 @@ label {
   left: 0;
   padding-top: 22px;
   padding-left: 30px;
+  position: absolute;
+  transition: 0.5s;
 }
 
 .label__people {
@@ -218,8 +221,8 @@ label {
   display: none;
 }
 
-input:focus ~ label,
-input:not(:focus):valid ~ label {
+input:focus ~ .input__group--label,
+input:not(:focus):valid ~ .input__group--label {
   color: #ffffff;
   top: -70px;
 }

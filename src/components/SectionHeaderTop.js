@@ -47,7 +47,7 @@ const SectionHeaderTop = () => (
           <use xlinkHref={`${IconsSVG}#menu`} />
         </svg>
       </div>
-      <SectionSignIn/>
+      <SectionSignIn />
     </div>
   </div>
 );

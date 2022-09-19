@@ -85,9 +85,10 @@
   margin: 8px;
 }
 .main__free--elementBlock {
-  margin: 70px;
+  padding: 50px;
   display: block;
   text-align: center;
+  background-color: #eaf0f9;
 }
 
 .main__free--elementNone {
