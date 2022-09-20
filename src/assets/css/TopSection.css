@@ -14,13 +14,16 @@
 .header__container {
   min-height: 900px;
   max-width: 1232px;
-  padding: 51px 0;
 }
 
 .section__header--top {
+  position: relative;
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
+  background-color: #010435;
+  /*margin-bottom: 191px;*/
+  padding: 51px 104px;
 }
 
 .logo__vector {
@@ -116,16 +119,13 @@
   filter: invert(22%) sepia(45%) saturate(672%) hue-rotate(344deg) brightness(95%) contrast(102%);
 }
 
-.section__header--top {
-  margin-bottom: 191px;
-}
-
 .header__name {
   color: #ffffff;
   font-style: normal;
   font-size: 50px;
   font-weight: 500;
   margin-bottom: 145px;
+  padding-top: 140px;
 }
 
 .input__group {
@@ -161,6 +161,7 @@
   position: relative;
   width: 50%;
 }
+
 .calendarInBlock {
   position: absolute;
   width: 207px;
@@ -170,7 +171,7 @@
   display: block;
 }
 
-.calendarInNone{
+.calendarInNone {
   display: none;
 }
 
@@ -183,7 +184,7 @@
   display: block;
 }
 
-.calendarOutNone{
+.calendarOutNone {
   display: none;
 }
 
@@ -191,10 +192,10 @@
   width: 25%;
 }
 
-label {
-  position: absolute;
-  transition: 0.5s;
-}
+/*label{*/
+/*  position: absolute;*/
+/*  transition: 0.5s;*/
+/*}*/
 
 .input__group--label {
   color: #383838;
@@ -202,6 +203,8 @@ label {
   left: 0;
   padding-top: 22px;
   padding-left: 30px;
+  position: absolute;
+  transition: 0.5s;
 }
 
 .label__people {
@@ -218,8 +221,8 @@ label {
   display: none;
 }
 
-input:focus ~ label,
-input:not(:focus):valid ~ label {
+input:focus ~ .input__group--label,
+input:not(:focus):valid ~ .input__group--label {
   color: #ffffff;
   top: -70px;
 }

@@ -1,0 +1,64 @@
+@import 'fonts.css';
+
+.container__sign--in {
+  display: none;
+  position: absolute;
+  width: 400px;
+  height: 364px;
+  top: 130px;
+  left: 520px;
+  background-color: #ffffff;
+  border: 1px solid #cecece;
+}
+
+.title__sign {
+  font-size: 24px;
+  font-weight: 500;
+  align-items: center;
+  width: 80px;
+  margin: 38px auto;
+  color: #000000;
+}
+
+.wrapper__input--value {
+  width: 329px;
+  margin: 24px auto;
+}
+
+.label__email,
+.label__password {
+  position: relative;
+  transition: 0.5s;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+.input__email,
+.input__password {
+  width: 100%;
+  height: 41px;
+  border: 2px solid #cecece;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.input__email {
+  margin-bottom: 30px;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+}
+
+.btn__sign--in {
+  background-color: #3077c6;
+  border-radius: 8px;
+  border: 0;
+  color: #ffffff;
+  font-size: 24px;
+  height: 48px;
+  width: 100%;
+  margin-top: 24px;
+}

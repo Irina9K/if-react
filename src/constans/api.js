@@ -1,3 +1,4 @@
 export const API_URL = 'https://fe-student-api.herokuapp.com/api';
 export const PATH_FOR_SEARCH_HOTELS = 'hotels?search';
 export const PATH_FOR_HOTELS_POPULAR = 'hotels/popular';
+export const PATH_FOR_ROUTER = 'hotels';

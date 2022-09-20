@@ -1,6 +1,7 @@
 import React from 'react';
 import IconsSVG from '../assets/img/sprite.svg';
 import '../assets/css/TopSection.css';
+import SectionSignIn from './SectionSignIn';
 
 const SectionHeaderTop = () => (
   <div className="section section__header--top">
@@ -46,6 +47,7 @@ const SectionHeaderTop = () => (
           <use xlinkHref={`${IconsSVG}#menu`} />
         </svg>
       </div>
+      <SectionSignIn />
     </div>
   </div>
 );

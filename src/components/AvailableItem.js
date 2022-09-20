@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function AvailableItem({ city, country, name, imageUrl }) {
+function AvailableItem({ city, country, name, imageUrl, hotelId }) {
   return (
     <>
-      <figure className="main__free--element">
+      <figure className="main__free--elementBlock">
         <img
           src={imageUrl}
           alt={name}
@@ -13,7 +14,10 @@ function AvailableItem({ city, country, name, imageUrl }) {
           }}
         />
         <figcaption className="main__name--img">
-          <a className="nav__link--country">{name}</a>
+          <Link to={`/hotels/${hotelId}`} className="nav__link--country">
+            {name}
+          </Link>
+
           <a className="main__name--country">
             {city}
             <br />
