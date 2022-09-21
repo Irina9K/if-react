@@ -65,4 +65,17 @@ const data = [
   },
 ];
 
-export { data };
+const users = [
+  {
+    id: 1,
+    email: '1',
+    password: '1',
+  },
+  {
+    id: 2,
+    email: '2',
+    password: '2',
+  },
+];
+
+export { data, users };

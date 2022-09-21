@@ -26,6 +26,14 @@
   padding: 51px 104px;
 }
 
+.section__header--foundationBlock{
+  display: block;
+}
+
+.section__header--foundationNone{
+  display: none;
+}
+
 .logo__vector {
   height: 40px;
   width: 205px;

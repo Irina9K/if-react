@@ -2,12 +2,16 @@
     max-width: 1232px;
 }
 
-.footer {
+.footerBlock {
     background-color: #10367c;
     color: #ffffff;
     font-weight: 400;
     font-size: 20px;
     height: 630px;
+}
+
+.footerNone{
+    display: none;
 }
 
 .row-footer {

@@ -1,7 +1,7 @@
 @import 'fonts.css';
 
-.container__sign--in {
-  display: none;
+.container__sign--inBlock {
+  display: block;
   position: absolute;
   width: 400px;
   height: 364px;
@@ -9,6 +9,11 @@
   left: 520px;
   background-color: #ffffff;
   border: 1px solid #cecece;
+}
+
+.container__sign--inNone {
+  display: none;
+
 }
 
 .title__sign {
