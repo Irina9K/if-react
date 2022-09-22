@@ -12,7 +12,7 @@ const SectionSignIn = () => {
   function clickLogin() {
     if (email && password) {
       users.forEach((item) => {
-        if (item.email === email && item.password === password) {
+        if (item.email === email.toString() && item.password === password.toString()) {
           setIsAuth(true);
         }
       });
@@ -34,7 +34,7 @@ const SectionSignIn = () => {
       {' '}
       <div className={isAuth ? 'container__sign--inNone ' : 'container__sign--inBlock '}>
         <div className="title__sign">Sign in</div>
-        <div className="wrapper__input--value">
+        <form className="wrapper__input--value">
           <label className="label__email" htmlFor="email">
             Email address
           </label>
@@ -47,10 +47,10 @@ const SectionSignIn = () => {
           ></input>
           <label className="label__password">Password</label>
           <input onChange={(e) => checkPassword(e)} className="input__password"></input>
-          <button onClick={clickLogin} className="btn btn__sign--in">
+          <button onClick={clickLogin} className="btn btn__sign--in" type='reset'>
             Sign in
           </button>
-        </div>
+        </form>
       </div>
     </>
   );
