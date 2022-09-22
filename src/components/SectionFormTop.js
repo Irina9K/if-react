@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
 import DatePicker from 'react-datepicker';
@@ -11,6 +11,7 @@ import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import { AuthContext } from '../context/context';
 
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
@@ -19,6 +20,8 @@ function SectionFormTop() {
   const [filterStatus, setFilterStatus] = useState(false);
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
+
+  const { isAuth } = useContext(AuthContext);
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -48,7 +51,12 @@ function SectionFormTop() {
         }}
       >
         <div className="container header__container">
-          <section className="section section__header--foundation">
+          <section
+            // className='section section__header--foundation'
+            className={`section ${
+              isAuth ? 'section__header--foundationBlock' : 'section__header--foundationNone'
+            }`}
+          >
             <h1 className="header__name">
               Discover stays
               <br />

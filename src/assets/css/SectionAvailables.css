@@ -47,9 +47,14 @@
   max-width: 1440px;
 }
 
-.main__free {
+.main__freeBlock {
+  display: block;
   background-color: #eaf0f9;
   min-height: 300px;
+}
+
+.main__freeNone {
+  display: none;
 }
 
 .main__homes {
@@ -110,8 +115,8 @@
   text-align: center;
 }
 
-.main__name--imgRouter{
- font-size: 35px;
+.main__name--imgRouter {
+  font-size: 35px;
 }
 
 .main__name--img

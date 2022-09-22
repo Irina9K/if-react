@@ -1,9 +1,21 @@
+import React, { useContext, useState } from 'react';
 import IconsSVG from '../assets/img/sprite.svg';
 import '../assets/css/TopSection.css';
 import SectionSignIn from './SectionSignIn';
 import SectionSignOut from './SectionSignOut';
 
-const SectionHeaderTop = () => (
+import { AuthContext } from '../context/context';
+
+const SectionHeaderTop = () => {
+  const { isAuth } = useContext(AuthContext);
+  const [isLogout, setIsLogout] = useState(false);
+
+  function showLogOut() {
+    // eslint-disable-next-line no-unused-expressions
+    isAuth && setIsLogout(true);
+  }
+
+  return (
     <div className="section section__header--top">
       <div className="header__logo">
         <a href="#">
@@ -36,7 +48,7 @@ const SectionHeaderTop = () => (
             </svg>
           </button>
         </div>
-        <div className="header__icon--account">
+        <div onClick={showLogOut} className="header__icon--account">
           <svg className="icon__account">
             <use xlinkHref={`${IconsSVG}#account_circle`} />
           </svg>
@@ -48,9 +60,10 @@ const SectionHeaderTop = () => (
           </svg>
         </div>
         <SectionSignIn />
-        <SectionSignOut />
+        <SectionSignOut isLogout={isLogout} setIsLogout={setIsLogout} />
       </div>
     </div>
-);
+  );
+};
 
 export default SectionHeaderTop;

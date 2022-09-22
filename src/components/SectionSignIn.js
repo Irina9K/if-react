@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../assets/css/SectionSignIn.css';
 import '../assets/css/TopSection.css';
 import { users } from '../constans/constans';
+import { AuthContext } from '../context/context';
 
 const SectionSignIn = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const { isAuth, setIsAuth } = useContext(AuthContext);
 
   function clickLogin() {
     if (email && password) {
       users.forEach((item) => {
         if (item.email === email && item.password === password) {
-          setIsLogin(false);
+          setIsAuth(true);
         }
       });
     }
@@ -31,7 +32,7 @@ const SectionSignIn = () => {
   return (
     <>
       {' '}
-      <div className={isLogin ? 'container__sign--inBlock ' : 'container__sign--inNone '}>
+      <div className={isAuth ? 'container__sign--inNone ' : 'container__sign--inBlock '}>
         <div className="title__sign">Sign in</div>
         <div className="wrapper__input--value">
           <label className="label__email" htmlFor="email">
@@ -41,7 +42,6 @@ const SectionSignIn = () => {
             onChange={(e) => checkEmail(e)}
             className="input__email"
             name="email"
-            placeholder="Your email"
             id="email"
             type="email"
           ></input>
