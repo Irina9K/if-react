@@ -47,7 +47,7 @@ const SectionSignIn = () => {
           ></input>
           <label className="label__password">Password</label>
           <input onChange={(e) => checkPassword(e)} className="input__password"></input>
-          <button onClick={clickLogin} className="btn btn__sign--in" type='reset'>
+          <button onClick={clickLogin} className="btn btn__sign--in" type="reset">
             Sign in
           </button>
         </form>

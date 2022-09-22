@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import IconsSVG from '../assets/img/sprite.svg';
 import '../assets/css/TopSection.css';
 import SectionSignIn from './SectionSignIn';
@@ -18,11 +19,11 @@ const SectionHeaderTop = () => {
   return (
     <div className="section section__header--top">
       <div className="header__logo">
-        <a href="#">
+        <Link to={'/'}>
           <svg className="logo__vector">
             <use xlinkHref={`${IconsSVG}#logo_vector`} />
           </svg>
-        </a>
+        </Link>
       </div>
 
       <nav className="nav">
@@ -49,7 +50,7 @@ const SectionHeaderTop = () => {
           </button>
         </div>
         <div onClick={showLogOut} className="header__icon--account">
-          <svg className="icon__account">
+          <svg className={isAuth ? 'icon__account' : 'icon__accountLight'}>
             <use xlinkHref={`${IconsSVG}#account_circle`} />
           </svg>
         </div>
