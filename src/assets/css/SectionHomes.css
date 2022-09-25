@@ -21,7 +21,7 @@ a {
   max-width: 1440px;
 }
 
-.main__homes {
+.main__homesBlock {
   background-color: #eaf0f9;
   max-height: 1500px;
   display: flex;
@@ -29,6 +29,11 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   /*margin: 0 -8px;*/
+}
+
+.main__homesNone {
+  display: none;
+
 }
 
 .main__homes--hotel {

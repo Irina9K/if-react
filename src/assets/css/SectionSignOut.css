@@ -1,0 +1,28 @@
+.container__signoutBlock {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 192px;
+  height: 50px;
+  background-color: #ffffff;
+  border: 1px solid #cecece;
+  top: 70%;
+  left: 79%;
+}
+
+.container__signoutNone {
+  display: none;
+}
+
+.icon__vector {
+  width: 20px;
+  height: 18px;
+  margin-left: 16px;
+}
+
+.text__signout {
+  font-size: 20px;
+  font-weight: 400;
+  padding-left: 16px;
+}

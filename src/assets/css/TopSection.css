@@ -26,6 +26,14 @@
   padding: 51px 104px;
 }
 
+.section__header--foundationBlock {
+  display: block;
+}
+
+.section__header--foundationNone {
+  display: none;
+}
+
 .logo__vector {
   height: 40px;
   width: 205px;
@@ -94,7 +102,8 @@
   width: 30px;
 }
 
-.icon__account {
+.icon__account,
+.icon__accountLight {
   background-repeat: no-repeat;
   background-size: contain;
   height: 42px;
@@ -108,10 +117,10 @@
 .icon__night,
 .icon__account,
 .nav__link {
-  transition: 0.9s;
+  transition: 0.4s;
 }
 
-.icon__account:hover {
+.icon__accountLight {
   filter: invert(22%) sepia(45%) saturate(672%) hue-rotate(344deg) brightness(95%) contrast(102%);
 }
 
