@@ -1,19 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import IconsSVG from '../assets/img/sprite.svg';
 import '../assets/css/TopSection.css';
 import SectionSignIn from './SectionSignIn';
 import SectionSignOut from './SectionSignOut';
 
-import { AuthContext } from '../context/context';
-
 const SectionHeaderTop = () => {
-  const { isAuth } = useContext(AuthContext);
   const [isLogout, setIsLogout] = useState(false);
+  const logReducer = useSelector((state) => state.value);
 
   function showLogOut() {
     // eslint-disable-next-line no-unused-expressions
-    isAuth && setIsLogout(true);
+    logReducer && setIsLogout(true);
   }
 
   return (
@@ -50,7 +49,7 @@ const SectionHeaderTop = () => {
           </button>
         </div>
         <div onClick={showLogOut} className="header__icon--account">
-          <svg className={isAuth ? 'icon__account' : 'icon__accountLight'}>
+          <svg className={logReducer ? 'icon__account' : 'icon__accountLight'}>
             <use xlinkHref={`${IconsSVG}#account_circle`} />
           </svg>
         </div>

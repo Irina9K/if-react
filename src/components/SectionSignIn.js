@@ -8,17 +8,13 @@ import allActions from '../store/actions';
 const SectionSignIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-
   const logReducer = useSelector((state) => state.value);
   const dispatch = useDispatch();
-
-  console.log(logReducer);
 
   function clickLogin() {
     if (email && password) {
       users.forEach((item) => {
         if (item.email === email.toString() && item.password === password.toString()) {
-          // setIsAuth(true);
           dispatch(allActions.logInAction());
         }
       });
@@ -40,11 +36,6 @@ const SectionSignIn = () => {
       {' '}
       <div className={logReducer ? 'container__sign--inNone ' : 'container__sign--inBlock '}>
         <div className="title__sign">Sign in</div>
-
-        {/* <p>Counter:{logReducer.value}</p> */}
-        {/* <button onClick={() => dispatch(allActions.logInAction())}>increment</button> */}
-        {/* <button onClick={() => dispatch(allActions.logOutAction())}>decrim</button> */}
-
         <form className="wrapper__input--value">
           <label className="label__email" htmlFor="email">
             Email address
