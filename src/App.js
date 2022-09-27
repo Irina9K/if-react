@@ -37,12 +37,3 @@ function App() {
 }
 
 export default App;
-
-// <Layout>
-//   <BrowserRouter>
-//     <Routes>
-//       <Route path={'/'} element={<App />} />
-//       <Route path={'hotels/:hotelId'} element={<HotelDetails />} />
-//     </Routes>
-//   </BrowserRouter>
-// </Layout>
