@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import '../assets/css/SectionFooter.css';
-import { AuthContext } from '../context/context';
+import { useSelector } from 'react-redux';
 
 const SectionFooter = () => {
-  const { isAuth } = useContext(AuthContext);
+  const logReducer = useSelector((state) => state.value);
 
   return (
-    <footer className={isAuth ? 'footerBlock' : 'footerNone'}>
+    <footer className={logReducer ? 'footerBlock' : 'footerNone'}>
       <div className="container footer__container">
         <div className="row-footer">
           <nav className="nav__footer--parts">

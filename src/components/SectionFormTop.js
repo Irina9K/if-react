@@ -1,7 +1,8 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import '../assets/css/TopSection.css';
 import '../assets/css/SectionAvailables.css';
 import DatePicker from 'react-datepicker';
+import { useSelector } from 'react-redux';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
 import app from '../assets/img/app_store.png';
@@ -9,9 +10,7 @@ import google from '../assets/img/google_play.png';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
-
 import 'react-datepicker/dist/react-datepicker.css';
-import { AuthContext } from '../context/context';
 
 function SectionFormTop() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
@@ -20,8 +19,7 @@ function SectionFormTop() {
   const [filterStatus, setFilterStatus] = useState(false);
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
-
-  const { isAuth } = useContext(AuthContext);
+  const logReducer = useSelector((state) => state.value);
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -54,7 +52,7 @@ function SectionFormTop() {
           <section
             // className='section section__header--foundation'
             className={`section ${
-              isAuth ? 'section__header--foundationBlock' : 'section__header--foundationNone'
+              logReducer ? 'section__header--foundationBlock' : 'section__header--foundationNone'
             }`}
           >
             <h1 className="header__name">

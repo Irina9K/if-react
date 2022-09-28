@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import IconsSVG from '../assets/img/sprite.svg';
 import '../assets/css/SectionSignOut.css';
-import { AuthContext } from '../context/context';
+import allActions from '../store/actions';
 
 const SectionSignOut = ({ isLogout, setIsLogout }) => {
-  const { setIsAuth } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   function logOut() {
-    setIsAuth(false);
+    dispatch(allActions.logOutAction());
     setIsLogout(false);
   }
 

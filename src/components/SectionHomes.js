@@ -1,12 +1,12 @@
 import '../assets/css/SectionHomes.css';
 import '../assets/css/Title.css';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { API_URL, PATH_FOR_HOTELS_POPULAR } from '../constans/api';
-import { AuthContext } from '../context/context';
 
 const SectionHomes = () => {
   const [data, setData] = useState([]);
-  const { isAuth } = useContext(AuthContext);
+  const logReducer = useSelector((state) => state.value);
 
   useEffect(() => {
     fetch(`${API_URL}/${PATH_FOR_HOTELS_POPULAR}`)
@@ -18,7 +18,7 @@ const SectionHomes = () => {
 
   return (
     <div className="container main__container--homes">
-      <section className={isAuth ? 'main__homesBlock' : 'main__homesNone'}>
+      <section className={logReducer ? 'main__homesBlock' : 'main__homesNone'}>
         <div className="main__title title_homes">
           <h2>Homes guests loves</h2>
         </div>
