@@ -3,7 +3,8 @@ import '../assets/css/SectionSignIn.css';
 import '../assets/css/TopSection.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { users } from '../constans/constans';
-import allActions from '../store/actions';
+import { logInAction } from '../store/actions';
+// import allActions from '../store/actions';
 
 const SectionSignIn = () => {
   const [email, setEmail] = useState(null);
@@ -11,11 +12,15 @@ const SectionSignIn = () => {
   const logReducer = useSelector((state) => state.value);
   const dispatch = useDispatch();
 
+  console.log(logReducer);
+
   function clickLogin() {
     if (email && password) {
       users.forEach((item) => {
         if (item.email === email.toString() && item.password === password.toString()) {
-          dispatch(allActions.logInAction());
+          console.log('hi');
+          dispatch(logInAction());
+          console.log(dispatch(logInAction()));
         }
       });
     }
