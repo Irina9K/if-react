@@ -8,11 +8,11 @@ import SectionSignOut from './SectionSignOut';
 
 const SectionHeaderTop = () => {
   const [showButtonOut, setShowButtonOut] = useState(false);
-  const logReducer = useSelector((state) => state.value);
+  const conditionReducer = useSelector((state) => state.value);
 
   function showLogOut() {
     // eslint-disable-next-line no-unused-expressions
-    logReducer && setShowButtonOut(true);
+    conditionReducer && setShowButtonOut(true);
     console.log('ui');
   }
 
@@ -50,7 +50,7 @@ const SectionHeaderTop = () => {
           </button>
         </div>
         <div onClick={showLogOut} className="header__icon--account">
-          <svg className={logReducer ? 'icon__account' : 'icon__accountLight'}>
+          <svg className={conditionReducer ? 'icon__account' : 'icon__accountLight'}>
             <use xlinkHref={`${IconsSVG}#account_circle`} />
           </svg>
         </div>
@@ -61,9 +61,7 @@ const SectionHeaderTop = () => {
           </svg>
         </div>
         <SectionSignIn />
-        <SectionSignOut
-            showButtonOut={showButtonOut} setShowButtonOut={setShowButtonOut}
-        />
+        <SectionSignOut showButtonOut={showButtonOut} setShowButtonOut={setShowButtonOut} />
       </div>
     </div>
   );

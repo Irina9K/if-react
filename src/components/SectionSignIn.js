@@ -8,7 +8,7 @@ import allActions from '../store/actions';
 const SectionSignIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const logReducer = useSelector((state) => state.value);
+  const conditionReducer = useSelector((state) => state.value);
   const dispatch = useDispatch();
 
   // console.log(logReducer);
@@ -36,7 +36,7 @@ const SectionSignIn = () => {
   return (
     <>
       {' '}
-      <div className={logReducer ? 'container__sign--inNone ' : 'container__sign--inBlock '}>
+      <div className={conditionReducer ? 'container__sign--inNone ' : 'container__sign--inBlock '}>
         <div className="title__sign">Sign in</div>
         <form className="wrapper__input--value">
           <label className="label__email" htmlFor="email">

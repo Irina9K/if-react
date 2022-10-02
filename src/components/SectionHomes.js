@@ -6,7 +6,7 @@ import { API_URL, PATH_FOR_HOTELS_POPULAR } from '../constans/api';
 
 const SectionHomes = () => {
   const [data, setData] = useState([]);
-  const logReducer = useSelector((state) => state.value);
+  const conditionReducer = useSelector((state) => state.value);
 
   useEffect(() => {
     fetch(`${API_URL}/${PATH_FOR_HOTELS_POPULAR}`)
@@ -18,7 +18,7 @@ const SectionHomes = () => {
 
   return (
     <div className="container main__container--homes">
-      <section className={logReducer ? 'main__homesBlock' : 'main__homesNone'}>
+      <section className={conditionReducer ? 'main__homesBlock' : 'main__homesNone'}>
         <div className="main__title title_homes">
           <h2>Homes guests loves</h2>
         </div>

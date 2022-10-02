@@ -40,7 +40,5 @@ const reducer = handleActions(
   defaultState,
 );
 
-console.log(allActions.logInAction());
-console.log(allActions.logOutAction());
 
 export default reducer;

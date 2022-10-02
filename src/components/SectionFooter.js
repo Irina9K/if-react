@@ -3,10 +3,10 @@ import '../assets/css/SectionFooter.css';
 import { useSelector } from 'react-redux';
 
 const SectionFooter = () => {
-  const logReducer = useSelector((state) => state.value);
+  const conditionReducer = useSelector((state) => state.value);
 
   return (
-    <footer className={logReducer ? 'footerBlock' : 'footerNone'}>
+    <footer className={conditionReducer ? 'footerBlock' : 'footerNone'}>
       <div className="container footer__container">
         <div className="row-footer">
           <nav className="nav__footer--parts">
