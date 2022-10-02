@@ -33,12 +33,12 @@ const reducer = handleActions(
       state,
       { payload: { a } },
     ) => ({
-      ...state, value: !a,
+      ...state,
+      value: !a,
     }),
   },
   defaultState,
 );
-
 console.log(allActions.logInAction());
 console.log(allActions.logOutAction());
 
