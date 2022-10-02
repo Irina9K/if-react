@@ -9,7 +9,7 @@ const SectionSignOut = ({ isLogout, setIsLogout }) => {
   const dispatch = useDispatch();
 
   function logOut() {
-    dispatch(allActions.logOutAction()); console.log('bay');
+    dispatch(allActions.logOutAction());
     setIsLogout(false);
   }
 
