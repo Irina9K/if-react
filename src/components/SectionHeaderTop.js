@@ -7,12 +7,13 @@ import SectionSignIn from './SectionSignIn';
 import SectionSignOut from './SectionSignOut';
 
 const SectionHeaderTop = () => {
-  const [isLogout, setIsLogout] = useState(false);
+  const [showButtonOut, setShowButtonOut] = useState(false);
   const logReducer = useSelector((state) => state.value);
 
   function showLogOut() {
     // eslint-disable-next-line no-unused-expressions
-    logReducer && setIsLogout(true);
+    logReducer && setShowButtonOut(true);
+    console.log('ui');
   }
 
   return (
@@ -60,7 +61,9 @@ const SectionHeaderTop = () => {
           </svg>
         </div>
         <SectionSignIn />
-        <SectionSignOut isLogout={isLogout} setIsLogout={setIsLogout} />
+        <SectionSignOut
+            showButtonOut={showButtonOut} setShowButtonOut={setShowButtonOut}
+        />
       </div>
     </div>
   );

@@ -24,21 +24,22 @@ import { combineActions, handleActions } from 'redux-actions';
 import allActions from './actions';
 
 export const defaultState = {
-  value: false,
+  valueDefaultState: false,
 };
 
 const reducer = handleActions(
   {
     [combineActions(allActions.logInAction, allActions.logOutAction)]: (
       state,
-      { payload: { a } },
+      { payload: { isAuth } },
     ) => ({
       ...state,
-      value: !a,
+      valueDefaultState: !isAuth,
     }),
   },
   defaultState,
 );
+
 console.log(allActions.logInAction());
 console.log(allActions.logOutAction());
 
