@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 // import storage from 'redux-persist/lib/storage';
 // import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
-import reducer, {defaultState} from './store/reducer';
+import reducer, { defaultState } from './store/reducer';
 
 window.React = React;
 
@@ -24,15 +24,17 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
+console.log(store.getState());
+
 // const persistor = persistStore(store);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-     {/*<PersistGate persistor={persistor}>*/}
+    {/* <PersistGate persistor={persistor}> */}
     <React.StrictMode>
       <App />
     </React.StrictMode>
-    {/*</PersistGate> ,*/}
+    {/* </PersistGate> , */}
   </Provider>,
 );

@@ -11,7 +11,7 @@ const SectionSignIn = () => {
   const logReducer = useSelector((state) => state.value);
   const dispatch = useDispatch();
 
-  console.log(logReducer);
+  // console.log(logReducer);
 
   function clickLogin() {
     if (email && password) {
