@@ -19,7 +19,7 @@ function SectionFormTop() {
   const [filterStatus, setFilterStatus] = useState(false);
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
-  const logReducer = useSelector((state) => state.value);
+  const conditionReducer = useSelector((state) => state.valueDefaultState);
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -50,9 +50,8 @@ function SectionFormTop() {
       >
         <div className="container header__container">
           <section
-            // className='section section__header--foundation'
             className={`section ${
-              logReducer ? 'section__header--foundationBlock' : 'section__header--foundationNone'
+              conditionReducer ? 'section__header--foundationBlock' : 'section__header--foundationNone'
             }`}
           >
             <h1 className="header__name">

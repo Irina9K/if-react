@@ -6,7 +6,7 @@ import { API_URL, PATH_FOR_HOTELS_POPULAR } from '../constans/api';
 
 const SectionHomes = () => {
   const [data, setData] = useState([]);
-  const conditionReducer = useSelector((state) => state.value);
+  const conditionReducer = useSelector((state) => state.valueDefaultState);
 
   useEffect(() => {
     fetch(`${API_URL}/${PATH_FOR_HOTELS_POPULAR}`)

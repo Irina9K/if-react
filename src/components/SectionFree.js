@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import AvailableItem from './AvailableItem';
 
 const SectionFree = ({ hotels, inputValue }) => {
-  const logReducer = useSelector((state) => state.value);
+  const conditionReducer = useSelector((state) => state.valueDefaultState);
 
   return (
-    <section className={logReducer ? 'main__freeBlock' : 'main__freeNone'}>
+    <section className={conditionReducer ? 'main__freeBlock' : 'main__freeNone'}>
       <div className="row__free">
         <div className="main__title title_free">
           <h2>Available hotels</h2>
