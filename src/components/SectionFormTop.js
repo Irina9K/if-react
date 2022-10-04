@@ -51,7 +51,9 @@ function SectionFormTop() {
         <div className="container header__container">
           <section
             className={`section ${
-              conditionReducer ? 'section__header--foundationBlock' : 'section__header--foundationNone'
+              conditionReducer ?
+                'section__header--foundationBlock'
+                : 'section__header--foundationNone'
             }`}
           >
             <h1 className="header__name">
