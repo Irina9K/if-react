@@ -8,7 +8,7 @@ import { logInAction } from '../store/actions';
 const SectionSignIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const conditionReducer = useSelector((state) => state.valueDefaultState);
+  const conditionReducer = useSelector((state) => state.isLogin);
   const dispatch = useDispatch();
 
   function clickLogin() {

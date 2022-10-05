@@ -19,7 +19,7 @@ function SectionFormTop() {
   const [filterStatus, setFilterStatus] = useState(false);
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
-  const conditionReducer = useSelector((state) => state.valueDefaultState);
+  const conditionReducer = useSelector((state) => state.isLogin);
 
   const handleClick = useCallback(() => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)

@@ -8,7 +8,7 @@ import SectionSignOut from './SectionSignOut';
 
 const SectionHeaderTop = () => {
   const [showButtonOut, setShowButtonOut] = useState(false);
-  const conditionReducer = useSelector((state) => state.valueDefaultState);
+  const conditionReducer = useSelector((state) => state.isLogin);
 
   function showLogOut() {
     // eslint-disable-next-line no-unused-expressions

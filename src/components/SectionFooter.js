@@ -3,7 +3,7 @@ import '../assets/css/SectionFooter.css';
 import { useSelector } from 'react-redux';
 
 const SectionFooter = () => {
-  const conditionReducer = useSelector((state) => state.valueDefaultState);
+  const conditionReducer = useSelector((state) => state.isLogin);
 
   return (
     <footer className={conditionReducer ? 'footerBlock' : 'footerNone'}>
