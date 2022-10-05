@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { API_URL, PATH_FOR_ROUTER } from '../constans/api';
+
+import { API_URL, PATH_FOR_ROUTER } from '../constants/api.constants';
 
 const HotelDetails = ({ hotelId }) => {
   const [arrHotelDetails, setArrHotelDetails] = useState([]);
@@ -18,17 +19,10 @@ const HotelDetails = ({ hotelId }) => {
     <>
       <figure
         className="main__free--elementBlock"
-        style={{
-          paddingBottom: `${45}px`,
-        }}
       >
-        <img
+        <img className='main__name--imgDetails'
           src={arrHotelDetails.imageUrl}
           alt={arrHotelDetails.name}
-          style={{
-            height: `${596}px`,
-            width: `${596}px`,
-          }}
         />
         <figcaption className="main__name--imgRouter">
           <Link to={`/hotels/${hotelId}`} className="nav__link--country">

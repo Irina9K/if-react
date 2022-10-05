@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import IconsSVG from '../assets/img/sprite.svg';
-import '../assets/css/SectionSignOut.css';
-import { logOutAction } from '../store/actions';
 
-const SectionSignOut = ({ showButtonOut, setShowButtonOut }) => {
+import { logOutAction } from '../store/actions';
+import IconsSVG from '../assets/img/sprite.svg';
+import '../assets/css/SignOut.css';
+
+const SignOut = ({ showButtonOut, setShowButtonOut }) => {
   const dispatch = useDispatch();
 
   function logOut() {
@@ -28,4 +29,4 @@ const SectionSignOut = ({ showButtonOut, setShowButtonOut }) => {
   );
 };
 
-export default SectionSignOut;
+export default SignOut;

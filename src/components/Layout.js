@@ -1,12 +1,13 @@
 import React from 'react';
-import SectionHeaderTop from './SectionHeaderTop';
-import SectionFooter from './SectionFooter';
+
+import Header from './Header';
+import Footer from './Footer';
 
 export const Layout = ({ children }) => (
   <>
-    <SectionHeaderTop />
+    <Header />
     {children}
-    <SectionFooter />
+    <Footer />
   </>
 );
 

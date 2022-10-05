@@ -1,18 +1,20 @@
 import React, { useCallback, useState } from 'react';
-import '../assets/css/TopSection.css';
-import '../assets/css/SectionAvailables.css';
-import DatePicker from 'react-datepicker';
 import { useSelector } from 'react-redux';
+import DatePicker from 'react-datepicker';
+
+import SectionFree from './SectionFree';
+import FilterContainer from './FilterItem';
+import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constants/api.constants';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
 import app from '../assets/img/app_store.png';
 import google from '../assets/img/google_play.png';
-import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constans/api';
-import SectionFree from './SectionFree';
-import FilterContainer from './FilterItem';
+import '../assets/css/TopSection.css';
+import '../assets/css/Availables.css';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
-function SectionFormTop() {
+function Form() {
   const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
@@ -137,4 +139,4 @@ function SectionFormTop() {
   );
 }
 
-export default SectionFormTop;
+export default Form;

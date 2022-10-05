@@ -1,6 +1,7 @@
 import React from 'react';
-import '../assets/css/TopSection.css';
+
 import SelectItem from './SelectItem';
+import '../assets/css/TopSection.css';
 
 const WhatIsTheAge = ({ showQuestion, numberChildren }) => {
   function createSelect() {

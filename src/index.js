@@ -8,8 +8,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
 import { reducer, defaultState } from './store/reducer';
 
-window.React = React;
-
 const persistConfig = {
   key: 'root',
   storage,
@@ -20,7 +18,6 @@ const persistedStore = persistReducer(persistConfig, reducer);
 const store = createStore(
   persistedStore,
   defaultState,
-
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
@@ -33,7 +30,6 @@ root.render(
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </PersistGate>{' '}
-    ,
+    </PersistGate>
   </Provider>,
 );

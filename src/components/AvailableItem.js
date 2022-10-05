@@ -5,13 +5,9 @@ function AvailableItem({ city, country, name, imageUrl, hotelId }) {
   return (
     <>
       <figure className="main__free--elementBlock">
-        <img
+        <img className='main__name--imgFree'
           src={imageUrl}
           alt={name}
-          style={{
-            height: `${296}px`,
-            width: `${296}px`,
-          }}
         />
         <figcaption className="main__name--img">
           <Link to={`/hotels/${hotelId}`} className="nav__link--country">

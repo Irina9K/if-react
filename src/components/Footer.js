@@ -1,8 +1,9 @@
 import React from 'react';
-import '../assets/css/SectionFooter.css';
 import { useSelector } from 'react-redux';
 
-const SectionFooter = () => {
+import '../assets/css/Footer.css';
+
+const Footer = () => {
   const conditionReducer = useSelector((state) => state.isLogin);
 
   return (
@@ -101,4 +102,4 @@ const SectionFooter = () => {
   );
 };
 
-export default SectionFooter;
+export default Footer;

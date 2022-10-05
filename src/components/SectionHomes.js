@@ -1,8 +1,9 @@
-import '../assets/css/SectionHomes.css';
-import '../assets/css/Title.css';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { API_URL, PATH_FOR_HOTELS_POPULAR } from '../constans/api';
+
+import { API_URL, PATH_FOR_HOTELS_POPULAR } from '../constants/api.constants';
+import '../assets/css/SectionHomes.css';
+import '../assets/css/Title.css';
 
 const SectionHomes = () => {
   const [data, setData] = useState([]);

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import '../assets/css/SectionSignIn.css';
-import '../assets/css/TopSection.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { users } from '../constans/constans';
-import { logInAction } from '../store/actions';
 
-const SectionSignIn = () => {
+import { users } from '../constants/user-credentials.constants';
+import { logInAction } from '../store/actions';
+import '../assets/css/SignIn.css';
+import '../assets/css/TopSection.css';
+
+const SignIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const conditionReducer = useSelector((state) => state.isLogin);
@@ -33,7 +34,6 @@ const SectionSignIn = () => {
 
   return (
     <>
-      {' '}
       <div className={conditionReducer ? 'container__sign--inNone ' : 'container__sign--inBlock '}>
         <div className="title__sign">Sign in</div>
         <form className="wrapper__input--value">
@@ -58,4 +58,4 @@ const SectionSignIn = () => {
   );
 };
 
-export default SectionSignIn;
+export default SignIn;

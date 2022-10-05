@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import SignIn from './SignIn';
+import SignOut from './SignOut';
 import IconsSVG from '../assets/img/sprite.svg';
 import '../assets/css/TopSection.css';
-import SectionSignIn from './SectionSignIn';
-import SectionSignOut from './SectionSignOut';
 
-const SectionHeaderTop = () => {
+const Header = () => {
   const [showButtonOut, setShowButtonOut] = useState(false);
   const conditionReducer = useSelector((state) => state.isLogin);
 
@@ -59,11 +60,11 @@ const SectionHeaderTop = () => {
             <use xlinkHref={`${IconsSVG}#menu`} />
           </svg>
         </div>
-        <SectionSignIn />
-        <SectionSignOut showButtonOut={showButtonOut} setShowButtonOut={setShowButtonOut} />
+        <SignIn />
+        <SignOut showButtonOut={showButtonOut} setShowButtonOut={setShowButtonOut} />
       </div>
     </div>
   );
 };
 
-export default SectionHeaderTop;
+export default Header;

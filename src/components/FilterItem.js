@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import WhatIsTheAge from './WhatIsTheAge';
 
 const FilterContainer = ({ filterStatus, showFilter }) => {
@@ -20,9 +21,6 @@ const FilterContainer = ({ filterStatus, showFilter }) => {
         name="people-room"
         autoComplete="off"
       />
-      <label className="input__group--label label__people" htmlFor="people-room">
-        {' '}
-      </label>
       <div
         className={filterStatus ? 'container__forms--filterBlock' : 'container__forms--filterNone'}
       >
