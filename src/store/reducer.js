@@ -1,21 +1,18 @@
-const initialState = {
-  value: false,
+import { combineActions, handleActions } from 'redux-actions';
+import { logInAction, logOutAction } from './actions';
+
+const defaultState = {
+  isLogin: false,
 };
 
-function logReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'LOG_IN':
-      return {
-        ...state,
-        value: true,
-      };
-    case 'LOG_OUT':
-      return {
-        ...state,
-        value: false,
-      };
-    default:
-      return state;
-  }
-}
-export default logReducer;
+const reducer = handleActions(
+  {
+    [combineActions(logInAction, logOutAction)]: (state, { payload: { isAuth } }) => ({
+      ...state,
+      isLogin: isAuth,
+    }),
+  },
+  defaultState,
+);
+
+export { reducer, defaultState };

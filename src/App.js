@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SectionHomes from './components/SectionHomes';
-import SectionFormTop from './components/SectionFormTop';
+import Form from './components/Form';
 import { AuthContext } from './context/context';
 import Layout from './components/Layout';
 import HotelDetails from './components/HotelDetails';
@@ -23,8 +23,7 @@ function App() {
               path={'/'}
               element={
                 <>
-                  {' '}
-                  <SectionFormTop /> <SectionHomes />{' '}
+                  <Form /> <SectionHomes />
                 </>
               }
             />

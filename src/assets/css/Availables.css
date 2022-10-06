@@ -94,6 +94,7 @@
   display: block;
   text-align: center;
   background-color: #eaf0f9;
+  padding-bottom: 45px;
 }
 
 .main__free--elementNone {
@@ -108,6 +109,16 @@
 
 .main__free--element .main__name--img {
   font-size: 30px;
+}
+
+.main__name--imgFree{
+   height: 296px;
+   width: 296px;
+}
+
+.main__name--imgDetails{
+   height: 596px;
+   width: 596px;
 }
 
 .main__free--element .main__name--imgRouter {

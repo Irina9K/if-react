@@ -1,14 +1,13 @@
-import { LOG_IN, LOG_OUT } from './actionTypes';
+import { createAction } from 'redux-actions';
 
-const logInAction = () => ({
-  type: LOG_IN,
+const logInAction = createAction('LOG_IN', (isAuth = true) => {
+  console.log(isAuth);
+  return {
+    isAuth,
+  };
 });
+const logOutAction = createAction('LOG_OUT', (isAuth = false) => ({
+  isAuth,
+}));
 
-const logOutAction = () => ({
-  type: LOG_OUT,
-});
-
-export default {
-  logInAction,
-  logOutAction,
-};
+export { logInAction, logOutAction };

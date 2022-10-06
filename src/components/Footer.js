@@ -1,12 +1,13 @@
 import React from 'react';
-import '../assets/css/SectionFooter.css';
 import { useSelector } from 'react-redux';
 
-const SectionFooter = () => {
-  const logReducer = useSelector((state) => state.value);
+import '../assets/css/Footer.css';
+
+const Footer = () => {
+  const conditionReducer = useSelector((state) => state.isLogin);
 
   return (
-    <footer className={logReducer ? 'footerBlock' : 'footerNone'}>
+    <footer className={conditionReducer ? 'footerBlock' : 'footerNone'}>
       <div className="container footer__container">
         <div className="row-footer">
           <nav className="nav__footer--parts">
@@ -101,4 +102,4 @@ const SectionFooter = () => {
   );
 };
 
-export default SectionFooter;
+export default Footer;

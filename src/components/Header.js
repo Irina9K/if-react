@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import SignIn from './SignIn';
+import SignOut from './SignOut';
 import IconsSVG from '../assets/img/sprite.svg';
 import '../assets/css/TopSection.css';
-import SectionSignIn from './SectionSignIn';
-import SectionSignOut from './SectionSignOut';
 
-const SectionHeaderTop = () => {
-  const [isLogout, setIsLogout] = useState(false);
-  const logReducer = useSelector((state) => state.value);
+const Header = () => {
+  const [showButtonOut, setShowButtonOut] = useState(false);
+  const conditionReducer = useSelector((state) => state.isLogin);
 
   function showLogOut() {
     // eslint-disable-next-line no-unused-expressions
-    logReducer && setIsLogout(true);
+    conditionReducer && setShowButtonOut(true);
   }
 
   return (
@@ -49,7 +50,7 @@ const SectionHeaderTop = () => {
           </button>
         </div>
         <div onClick={showLogOut} className="header__icon--account">
-          <svg className={logReducer ? 'icon__account' : 'icon__accountLight'}>
+          <svg className={conditionReducer ? 'icon__account' : 'icon__accountLight'}>
             <use xlinkHref={`${IconsSVG}#account_circle`} />
           </svg>
         </div>
@@ -59,11 +60,11 @@ const SectionHeaderTop = () => {
             <use xlinkHref={`${IconsSVG}#menu`} />
           </svg>
         </div>
-        <SectionSignIn />
-        <SectionSignOut isLogout={isLogout} setIsLogout={setIsLogout} />
+        <SignIn />
+        <SignOut showButtonOut={showButtonOut} setShowButtonOut={setShowButtonOut} />
       </div>
     </div>
   );
 };
 
-export default SectionHeaderTop;
+export default Header;
