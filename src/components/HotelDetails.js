@@ -17,10 +17,9 @@ const HotelDetails = ({ hotelId }) => {
 
   return (
     <>
-      <figure
-        className="main__free--elementBlock"
-      >
-        <img className='main__name--imgDetails'
+      <figure className="main__free--elementBlock">
+        <img
+          className="main__name--imgDetails"
           src={arrHotelDetails.imageUrl}
           alt={arrHotelDetails.name}
         />
