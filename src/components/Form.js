@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
+// import {fetchHotels} from "../store/hotelsActions";
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constants/api.constants';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
@@ -23,7 +24,9 @@ function Form() {
   const [dateOut, setDateOut] = useState(null);
   const conditionReducer = useSelector((state) => state.isLogin);
 
-  const handleClick = useCallback(() => {
+  console.log(dateIn);
+
+  const handleClick = useCallback(async () => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
       .then((response) => response.json())
       .then((result) => {
