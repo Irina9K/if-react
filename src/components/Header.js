@@ -9,7 +9,7 @@ import '../assets/css/TopSection.css';
 
 const Header = () => {
   const [showButtonOut, setShowButtonOut] = useState(false);
-  const conditionReducer = useSelector((state) => state.isLogin);
+  const conditionReducer = useSelector((state) => state.reducer.isLogin);
 
   function showLogOut() {
     // eslint-disable-next-line no-unused-expressions

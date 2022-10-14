@@ -1,26 +1,26 @@
 const defaultState = {
-  users: [],
+  hotels: [],
 };
 
-export const SET_USERS = 'SET_USERS';
-export const FETCH_USERS = 'FETCH_USERS';
+export const SET_HOTELS = 'SET_HOTELS';
+export const FETCH_HOTELS = 'FETCH_HOTELS';
 
-export default function userReducer(state = defaultState, action) {
+export default function hotelReducer(state = defaultState, action) {
   // eslint-disable-next-line default-case
   switch (action.type) {
-    case SET_USERS:
+    case SET_HOTELS:
       return {
         ...state,
-        users: action.payload,
+        hotels: action.payload,
       };
   }
   return state;
 }
 
-export const setUsers = (payload) => ({
-  type: SET_USERS,
+export const setHotels = (payload) => ({
+  type: SET_HOTELS,
   payload,
 });
-export const fetchUsers = () => ({
-  type: FETCH_USERS,
+export const fetchHotels = () => ({
+  type: FETCH_HOTELS,
 });

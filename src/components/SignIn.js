@@ -9,7 +9,7 @@ import '../assets/css/TopSection.css';
 const SignIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const conditionReducer = useSelector((state) => state.isLogin);
+  const conditionReducer = useSelector((state) => state.reducer.isLogin);
   const dispatch = useDispatch();
 
   function clickLogin() {

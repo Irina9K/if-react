@@ -7,7 +7,7 @@ import '../assets/css/Title.css';
 
 const SectionHomes = () => {
   const [data, setData] = useState([]);
-  const conditionReducer = useSelector((state) => state.isLogin);
+  const conditionReducer = useSelector((state) => state.reducer.isLogin);
 
   useEffect(() => {
     fetch(`${API_URL}/${PATH_FOR_HOTELS_POPULAR}`)

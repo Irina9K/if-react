@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
-import { fetchUsers } from '../store/reducerHotels';
+import { fetchHotels } from '../store/reducerHotels';
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constants/api.constants';
@@ -21,11 +21,10 @@ function Form() {
   const [filterStatus, setFilterStatus] = useState(false);
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
-  const conditionReducer = useSelector((state) => state.isLogin);
-  console.log(conditionReducer);
+  const conditionReducer = useSelector((state) => state.reducer.isLogin);
 
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.userReducer.users);
+  const hotels = useSelector((state) => state.hotelReducer.hotels);
 
   const handleClick = useCallback(async () => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -50,10 +49,10 @@ function Form() {
   return (
     <>
       <div>
-        <button onClick={() => dispatch(fetchUsers())}>get hotels</button>
+        <button onClick={() => dispatch(fetchHotels())}>get hotels</button>
         <div>
-          {users.map((user, i) => (
-            <div key={i}>{user.name}</div>
+          {hotels.map((hotel, i) => (
+            <div key={i}>{hotel.name}</div>
           ))}
         </div>
       </div>

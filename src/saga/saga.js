@@ -1,19 +1,15 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
-import { FETCH_USERS, setUsers } from '../store/reducerHotels';
+import { FETCH_HOTELS, setHotels } from '../store/reducerHotels';
 
-const fetchUsersFromApi = () => fetch('https://fe-student-api.herokuapp.com/api/hotels');
+const fetchHotelsFromApi = () => fetch('https://fe-student-api.herokuapp.com/api/hotels');
 
-function* fetchUserWorker() {
-  const data = yield call(fetchUsersFromApi);
+function* fetchHotelWorker() {
+  const data = yield call(fetchHotelsFromApi);
   // eslint-disable-next-line no-promise-executor-return
   const json = yield call(() => new Promise((res) => res(data.json())));
-  yield put(setUsers(json));
+  yield put(setHotels(json));
 }
 
-export function* userWatcher() {
-  yield takeEvery(FETCH_USERS, fetchUserWorker);
-}
-
-export function* rootWatcher() {
-  yield userWatcher();
+export function* hotelWatcher() {
+  yield takeEvery(FETCH_HOTELS, fetchHotelWorker);
 }
