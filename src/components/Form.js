@@ -1,10 +1,9 @@
 import React, { useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
-
+import { fetchUsers } from '../store/reducerHotels';
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
-// import {fetchHotels} from "../store/hotelsActions";
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constants/api.constants';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
@@ -23,8 +22,10 @@ function Form() {
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
   const conditionReducer = useSelector((state) => state.isLogin);
+  console.log(conditionReducer);
 
-  console.log(dateIn);
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.userReducer.users);
 
   const handleClick = useCallback(async () => {
     fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -48,11 +49,22 @@ function Form() {
 
   return (
     <>
+      <div>
+        <button onClick={() => dispatch(fetchUsers())}>get hotels</button>
+        <div>
+          {users.map((user, i) => (
+            <div key={i}>{user.name}</div>
+          ))}
+        </div>
+      </div>
+
       <header
         style={{
           backgroundImage: `url(${background})`,
         }}
       >
+        {' '}
+        jmk
         <div className="container header__container">
           <section
             className={`section ${
@@ -115,7 +127,7 @@ function Form() {
                 <FilterContainer filterStatus={filterStatus} showFilter={showFilter} />
               </div>
               <div className="container__forms--button">
-                <button onClick={handleClick} className="btn header__button" type="reset">
+                <button onClick={() => handleClick()} className="btn header__button" type="reset">
                   Search
                 </button>
               </div>
