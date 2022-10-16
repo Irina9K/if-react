@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import { fetchHotels } from '../store/reducerHotels';
+
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
 import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constants/api.constants';
@@ -62,8 +63,6 @@ function Form() {
           backgroundImage: `url(${background})`,
         }}
       >
-        {' '}
-        jmk
         <div className="container header__container">
           <section
             className={`section ${

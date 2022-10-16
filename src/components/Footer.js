@@ -6,8 +6,6 @@ import '../assets/css/Footer.css';
 const Footer = () => {
   const conditionReducer = useSelector((state) => state.reducer.isLogin);
 
-  console.log(conditionReducer);
-
   return (
     <footer className={conditionReducer ? 'footerBlock' : 'footerNone'}>
       <div className="container footer__container">

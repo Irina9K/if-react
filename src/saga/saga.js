@@ -5,8 +5,10 @@ const fetchHotelsFromApi = () => fetch('https://fe-student-api.herokuapp.com/api
 
 function* fetchHotelWorker() {
   const data = yield call(fetchHotelsFromApi);
+  console.log(data);
   // eslint-disable-next-line no-promise-executor-return
   const json = yield call(() => new Promise((res) => res(data.json())));
+  console.log(json);
   yield put(setHotels(json));
 }
 
