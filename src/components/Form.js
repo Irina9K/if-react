@@ -1,11 +1,10 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import { fetchHotels } from '../store/reducerHotels';
 
 import SectionFree from './SectionFree';
 import FilterContainer from './FilterItem';
-import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constants/api.constants';
 import background from '../assets/img/castell.png';
 import IconsSVG from '../assets/img/sprite.svg';
 import app from '../assets/img/app_store.png';
@@ -16,26 +15,29 @@ import '../assets/css/Availables.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 function Form() {
-  const [arrSearchPlace, setArrSearchPlace] = useState([]);
+  const [arrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const [isBtnActive, setIsBtnActive] = useState(false);
+  const [isBtnActive] = useState(false);
   const [filterStatus, setFilterStatus] = useState(false);
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
+  const [numberAdults, setNumberAdults] = useState(0);
+  const [numberChildren, setNumberChildren] = useState(0);
+  const [numberRooms, setNumberRooms] = useState(0);
   const conditionReducer = useSelector((state) => state.reducer.isLogin);
 
   const dispatch = useDispatch();
   const hotels = useSelector((state) => state.hotelReducer.hotels);
 
-  const handleClick = useCallback(async () => {
-    fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
-      .then((response) => response.json())
-      .then((result) => {
-        setArrSearchPlace(result);
-      });
-    setIsBtnActive(true);
-    setFilterStatus(false);
-  }, [inputValue]);
+  // const handleClick = useCallback(async () => {
+  //   fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       setArrSearchPlace(result);
+  //     });
+  //   setIsBtnActive(true);
+  //   setFilterStatus(false);
+  // }, [inputValue]);
 
   function showAvailablePlace(e) {
     e.preventDefault();
@@ -50,7 +52,15 @@ function Form() {
   return (
     <>
       <div>
-        <button onClick={() => dispatch(fetchHotels())}>get hotels</button>
+        {/* <button */}
+        {/*  onClick={() => */}
+        {/*    dispatch( */}
+        {/*      fetchHotels(inputValue, dateIn, dateOut, numberAdults, numberChildren, numberRooms), */}
+        {/*    ) */}
+        {/*  } */}
+        {/* > */}
+        {/*  get hotels */}
+        {/* </button> */}
         <div>
           {hotels.map((hotel, i) => (
             <div key={i}>{hotel.name}</div>
@@ -122,10 +132,35 @@ function Form() {
                 </div>
               </div>
               <div className="container__forms--third">
-                <FilterContainer filterStatus={filterStatus} showFilter={showFilter} />
+                <FilterContainer
+                  filterStatus={filterStatus}
+                  showFilter={showFilter}
+                  numberAdults={numberAdults}
+                  setNumberAdults={setNumberAdults}
+                  numberChildren={numberChildren}
+                  setNumberChildren={setNumberChildren}
+                  numberRooms={numberRooms}
+                  setNumberRooms={setNumberRooms}
+                />
               </div>
               <div className="container__forms--button">
-                <button onClick={() => handleClick()} className="btn header__button" type="reset">
+                <button
+                  onClick={() => dispatch(
+                    // setIsBtnActive(!isBtnActive),
+                    // setFilterStatus(!filterStatus),
+                    fetchHotels(
+                      inputValue,
+                      dateIn,
+                      dateOut,
+                      numberAdults,
+                      numberChildren,
+                      numberRooms,
+                    ),
+                  )
+                  }
+                  className="btn header__button"
+                  type="reset"
+                >
                   Search
                 </button>
               </div>

@@ -30,7 +30,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-console': 'off',
     'no-alert': 'off',
-    'max-len': ['error', { ignoreComments: true, code: 160 }],
+    'max-len': ['error', { ignoreComments: true, code: 250 }],
     'import/prefer-default-export': 'off',
     'no-param-reassign': 0,
     'operator-linebreak': [

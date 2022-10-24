@@ -12,6 +12,8 @@ const SignIn = () => {
   const conditionReducer = useSelector((state) => state.reducer.isLogin);
   const dispatch = useDispatch();
 
+  console.log(conditionReducer);
+
   function clickLogin() {
     if (email && password) {
       users.forEach((item) => {

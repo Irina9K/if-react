@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 
 import WhatIsTheAge from './WhatIsTheAge';
 
-const FilterContainer = ({ filterStatus, showFilter }) => {
+const FilterContainer = ({
+  filterStatus,
+  showFilter,
+  numberAdults,
+  setNumberAdults,
+  numberChildren,
+  setNumberChildren,
+  numberRooms,
+  setNumberRooms,
+}) => {
   const [showQuestion, setShowQuestion] = useState(false);
-  const [numberAdults, setNumberAdults] = useState(0);
-  const [numberChildren, setNumberChildren] = useState(0);
-  const [numberRooms, setNumberRooms] = useState(0);
 
   return (
     <>

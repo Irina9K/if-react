@@ -21,6 +21,23 @@ export const setHotels = (payload) => ({
   type: SET_HOTELS,
   payload,
 });
-export const fetchHotels = () => ({
+
+export const fetchHotels = (
+  inputValue,
+  dateIn,
+  dateOut,
+  adults,
+  numberAdults,
+  numberChildren,
+  numberRooms,
+) => ({
   type: FETCH_HOTELS,
+  payload: {
+    inputValue,
+    dateIn,
+    dateOut,
+    numberAdults,
+    numberChildren,
+    numberRooms,
+  },
 });
