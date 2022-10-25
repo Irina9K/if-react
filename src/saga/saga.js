@@ -5,7 +5,6 @@ import { API_URL, PATH_FOR_SEARCH_HOTELS } from '../constants/api.constants';
 const fetchHotelsFromApi = ({ payload }) => {
   console.log(payload);
   fetch(
-    // 'https://fe-student-api.herokuapp.com/api/hotels',
     `${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${payload.inputValue}&dateFrom=${payload.dateIn}&dateTo${payload.dateOut}&adults=${payload.numberAdults}&children=${payload.numberChildren}&rooms=${payload.numberRooms}`,
   );
 };

@@ -15,9 +15,9 @@ import '../assets/css/Availables.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 function Form() {
-  const [arrSearchPlace] = useState([]);
+  // const [arrSearchPlace, setArrSearchPlace] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const [isBtnActive] = useState(false);
+  const [isBtnActive, setIsBtnActive] = useState(false);
   const [filterStatus, setFilterStatus] = useState(false);
   const [dateIn, setDateIn] = useState(null);
   const [dateOut, setDateOut] = useState(null);
@@ -28,6 +28,7 @@ function Form() {
 
   const dispatch = useDispatch();
   const hotels = useSelector((state) => state.hotelReducer.hotels);
+  console.log(hotels);
 
   // const handleClick = useCallback(async () => {
   //   fetch(`${API_URL}/${PATH_FOR_SEARCH_HOTELS}=${inputValue}`)
@@ -38,6 +39,13 @@ function Form() {
   //   setIsBtnActive(true);
   //   setFilterStatus(false);
   // }, [inputValue]);
+  // }
+
+  function handleClick() {
+    setIsBtnActive(true);
+    setFilterStatus(false);
+    dispatch(fetchHotels(inputValue, dateIn, dateOut, numberAdults, numberChildren, numberRooms));
+  }
 
   function showAvailablePlace(e) {
     e.preventDefault();
@@ -51,23 +59,6 @@ function Form() {
 
   return (
     <>
-      <div>
-        {/* <button */}
-        {/*  onClick={() => */}
-        {/*    dispatch( */}
-        {/*      fetchHotels(inputValue, dateIn, dateOut, numberAdults, numberChildren, numberRooms), */}
-        {/*    ) */}
-        {/*  } */}
-        {/* > */}
-        {/*  get hotels */}
-        {/* </button> */}
-        <div>
-          {hotels.map((hotel, i) => (
-            <div key={i}>{hotel.name}</div>
-          ))}
-        </div>
-      </div>
-
       <header
         style={{
           backgroundImage: `url(${background})`,
@@ -144,23 +135,7 @@ function Form() {
                 />
               </div>
               <div className="container__forms--button">
-                <button
-                  onClick={() => dispatch(
-                    // setIsBtnActive(!isBtnActive),
-                    // setFilterStatus(!filterStatus),
-                    fetchHotels(
-                      inputValue,
-                      dateIn,
-                      dateOut,
-                      numberAdults,
-                      numberChildren,
-                      numberRooms,
-                    ),
-                  )
-                  }
-                  className="btn header__button"
-                  type="reset"
-                >
+                <button onClick={() => handleClick()} className="btn header__button" type="reset">
                   Search
                 </button>
               </div>
@@ -181,7 +156,7 @@ function Form() {
           isBtnActive ? 'main__container--freeBlock' : 'main__container--freeNone'
         }`}
       >
-        <SectionFree hotels={arrSearchPlace} inputValue={inputValue} />
+        <SectionFree hotels={hotels} inputValue={inputValue} />
       </div>
     </>
   );

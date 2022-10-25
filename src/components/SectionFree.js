@@ -5,7 +5,7 @@ import AvailableItem from './AvailableItem';
 
 const SectionFree = ({ hotels, inputValue }) => {
   const conditionReducer = useSelector((state) => state.reducer.isLogin);
-
+  // console.log(hotels)
   return (
     <section className={conditionReducer ? 'main__freeBlock' : 'main__freeNone'}>
       <div className="row__free">
